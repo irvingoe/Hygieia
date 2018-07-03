@@ -1,0 +1,11 @@
+E:\Repositories\update\Hygieia\collectors\build\jenkins\src\main\java\com\capitalone\dashboard\Application.java
+E:\Repositories\update\Hygieia\collectors\build\jenkins\src\main\java\com\capitalone\dashboard\collector\DefaultHudsonClient.java
+E:\Repositories\update\Hygieia\collectors\build\jenkins\src\main\java\com\capitalone\dashboard\collector\RestOperationsSupplier.java
+E:\Repositories\update\Hygieia\collectors\build\jenkins\src\main\java\com\capitalone\dashboard\collector\HudsonCollectorTask.java
+E:\Repositories\update\Hygieia\collectors\build\jenkins\src\main\java\com\capitalone\dashboard\model\HudsonJob.java
+E:\Repositories\update\Hygieia\collectors\build\jenkins\src\main\java\com\capitalone\dashboard\repository\HudsonJobRepository.java
+E:\Repositories\update\Hygieia\collectors\build\jenkins\src\main\java\com\capitalone\dashboard\model\HudsonJobConfig.java
+E:\Repositories\update\Hygieia\collectors\build\jenkins\src\main\java\com\capitalone\dashboard\repository\HudsonCollectorRepository.java
+E:\Repositories\update\Hygieia\collectors\build\jenkins\src\main\java\com\capitalone\dashboard\collector\HudsonClient.java
+E:\Repositories\update\Hygieia\collectors\build\jenkins\src\main\java\com\capitalone\dashboard\collector\HudsonSettings.java
+E:\Repositories\update\Hygieia\collectors\build\jenkins\src\main\java\com\capitalone\dashboard\model\HudsonCollector.java

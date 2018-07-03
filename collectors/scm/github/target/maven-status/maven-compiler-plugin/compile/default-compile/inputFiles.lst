@@ -1,0 +1,9 @@
+E:\Repositories\update\Hygieia\collectors\scm\github\src\main\java\com\capitalone\dashboard\Application.java
+E:\Repositories\update\Hygieia\collectors\scm\github\src\main\java\com\capitalone\dashboard\collector\GitHubClient.java
+E:\Repositories\update\Hygieia\collectors\scm\github\src\main\java\com\capitalone\dashboard\collector\RestOperationsSupplier.java
+E:\Repositories\update\Hygieia\collectors\scm\github\src\main\java\com\capitalone\dashboard\collector\GitHubCollectorTask.java
+E:\Repositories\update\Hygieia\collectors\scm\github\src\main\java\com\capitalone\dashboard\model\GitHubParsed.java
+E:\Repositories\update\Hygieia\collectors\scm\github\src\main\java\com\capitalone\dashboard\repository\GitHubRepoRepository.java
+E:\Repositories\update\Hygieia\collectors\scm\github\src\main\java\com\capitalone\dashboard\collector\GitHubSettings.java
+E:\Repositories\update\Hygieia\collectors\scm\github\src\main\java\com\capitalone\dashboard\collector\DefaultGitHubClient.java
+E:\Repositories\update\Hygieia\collectors\scm\github\src\main\java\com\capitalone\dashboard\model\GitHubRepo.java

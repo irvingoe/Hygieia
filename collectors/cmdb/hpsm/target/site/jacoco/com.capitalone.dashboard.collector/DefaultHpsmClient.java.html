@@ -1,0 +1,834 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>DefaultHpsmClient.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">com.capitalone.dashboard:hpsm-cmdb-collector</a> &gt; <a href="index.source.html" class="el_package">com.capitalone.dashboard.collector</a> &gt; <span class="el_source">DefaultHpsmClient.java</span></div><h1>DefaultHpsmClient.java</h1><pre class="source lang-java linenums">package com.capitalone.dashboard.collector;
+
+import com.capitalone.dashboard.misc.HygieiaException;
+import com.capitalone.dashboard.model.ChangeOrder;
+import com.capitalone.dashboard.model.Cmdb;
+import com.capitalone.dashboard.model.HpsmSoapModel;
+import com.capitalone.dashboard.model.Incident;
+import com.capitalone.dashboard.util.HpsmCollectorConstants;
+import com.capitalone.dashboard.util.XmlUtil;
+import com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderFactoryImpl;
+import org.apache.commons.httpclient.Credentials;
+import org.apache.commons.httpclient.HttpClient;
+import org.apache.commons.httpclient.SimpleHttpConnectionManager;
+import org.apache.commons.httpclient.UsernamePasswordCredentials;
+import org.apache.commons.httpclient.auth.AuthScope;
+import org.apache.commons.httpclient.methods.PostMethod;
+import org.apache.commons.httpclient.methods.RequestEntity;
+import org.apache.commons.httpclient.methods.StringRequestEntity;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import org.w3c.dom.NamedNodeMap;
+import org.xml.sax.SAXException;
+
+
+import javax.xml.namespace.QName;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.soap.MessageFactory;
+import javax.xml.soap.SOAPEnvelope;
+import javax.xml.soap.SOAPMessage;
+import javax.xml.soap.SOAPPart;
+import javax.xml.soap.SOAPBody;
+import javax.xml.soap.SOAPBodyElement;
+import javax.xml.soap.SOAPException;
+
+import java.io.ByteArrayOutputStream;
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
+import java.text.MessageFormat;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.Date;
+import java.util.Calendar;
+
+
+/**
+ * HpsmClient implementation that uses SVNKit to fetch information about
+ * Subversion repositories.
+ */
+
+@Component
+public class DefaultHpsmClient implements HpsmClient {
+
+<span class="nc" id="L65">    private static final Log LOG = LogFactory.getLog(DefaultHpsmClient.class);</span>
+	private final HpsmSettings hpsmSettings;
+
+    private PostMethod post;
+<span class="nc" id="L69">    private SimpleHttpConnectionManager manager = new SimpleHttpConnectionManager(true);</span>
+<span class="nc" id="L70">    HttpClient httpclient = new HttpClient(manager);</span>
+<span class="nc" id="L71">    boolean usedClient = false;</span>
+    int port;
+
+    String strURL;
+    String protocol;
+    String server;
+    String resource;
+    String contentType;
+    String charset;
+<span class="nc" id="L80">    String userName = &quot;&quot;;</span>
+<span class="nc" id="L81">    String password = &quot;&quot;;</span>
+
+    private static final String APP_TYPE = &quot;app&quot;;
+	private static final String COMPONENT_TYPE = &quot;component&quot;;
+	private static final String ENVIRONMENT_TYPE = &quot;environment&quot;;
+
+	private static final String DEFAULT_CHANGE_QUERY_FORMAT = &quot;(date.entered &gt; ''{0}'' and date.entered &lt; ''{1}'') or (close.time &gt; ''{0}'' and close.time &lt; ''{1}'')&quot;;
+	private static final String DEFAULT_INCIDENT_QUERY_FORMAT = &quot;(Severity=1 or Severity=2 or Severity=3 or Severity=4) and update.time &gt; ''{0}'' and update.time &lt; ''{1}''&quot;;
+
+	private static final String QUERY_DATE_FORMAT = &quot;MM/dd/yyyy HH:mm:ss&quot;;
+
+	public static final int MILLISECONDS_IN_DAY = 1000 * 60 * 60 * 24;
+
+	private long lastExecuted;
+	private long incidentCount;
+	private long changeCount;
+
+<span class="nc" id="L98">	private enum SoapRequestType {</span>
+<span class="nc" id="L99">		CMDB, CHANGE_ORDER, INCIDENT</span>
+	}
+
+	@Override
+<span class="nc" id="L103">	public void setLastExecuted(long lastExecuted) { this.lastExecuted = lastExecuted; };</span>
+
+	@Override
+<span class="nc" id="L106">	public long getLastExecuted() { return lastExecuted; };</span>
+
+	@Override
+<span class="nc" id="L109">	public long getIncidentCount() { return incidentCount; }</span>
+
+	@Override
+<span class="nc" id="L112">	public void setIncidentCount(long incidentCount) { this.incidentCount = incidentCount; }</span>
+
+	@Override
+<span class="nc" id="L115">	public long getChangeCount() { return changeCount; }</span>
+
+	@Override
+<span class="nc" id="L118">	public void setChangeCount(long changeCount) { this.changeCount = changeCount; }</span>
+
+	@Autowired
+<span class="nc" id="L121">	public DefaultHpsmClient(HpsmSettings hpsmSettings) {</span>
+<span class="nc" id="L122">		this.hpsmSettings = hpsmSettings;</span>
+<span class="nc" id="L123">	}</span>
+
+    /**
+     *
+     * @return Combined List&lt;Cmdb&gt; of APPs and Components
+     */
+	@Override
+	public List&lt;Cmdb&gt; getApps() throws HygieiaException {
+
+<span class="nc" id="L132">		String limit = hpsmSettings.getCmdbBatchLimit();</span>
+<span class="nc bnc" id="L133" title="All 4 branches missed.">		if(limit != null &amp;&amp; !limit.isEmpty()) {</span>
+<span class="nc" id="L134">			LOG.info(&quot;NOTE: Collector run limited to &quot; + limit + &quot; results by property file setting.&quot;);</span>
+		}
+<span class="nc" id="L136">		List&lt;Cmdb&gt; cmdbList = new ArrayList&lt;&gt;();</span>
+
+<span class="nc" id="L138">		String statusString = hpsmSettings.getAppStatus();</span>
+<span class="nc bnc" id="L139" title="All 4 branches missed.">		String[] statusArray = (statusString == null || statusString.isEmpty()) ? new String[]{null} : statusString.split(&quot;,&quot;);</span>
+
+<span class="nc bnc" id="L141" title="All 2 branches missed.">		for(int i = 0; i &lt; statusArray.length; i++) {</span>
+<span class="nc bnc" id="L142" title="All 2 branches missed.">			if(statusArray[i] != null) {</span>
+				// this is just for logging what we are doing - it is perfectly valid for this to be null, but will
+				// only run once - additional logging is unnecessary.
+<span class="nc" id="L145">				LOG.info(&quot;Retrieving for status: &quot; + statusArray[i]);</span>
+			}
+<span class="nc" id="L147">			cmdbList.addAll(getAppList(statusArray[i]));</span>
+<span class="nc" id="L148">			cmdbList.addAll(getComponentList(statusArray[i]));</span>
+<span class="nc" id="L149">			cmdbList.addAll(getEnvironmentList(statusArray[i]));</span>
+		}
+
+<span class="nc" id="L152">		return cmdbList;</span>
+	}
+
+	@Override
+	public List&lt;ChangeOrder&gt; getChangeOrders() throws HygieiaException{
+		List&lt;ChangeOrder&gt; changeOrderList;
+<span class="nc" id="L158">		changeOrderList = getChangeOrderList();</span>
+<span class="nc" id="L159">		return changeOrderList;</span>
+	}
+
+	@Override
+	public List&lt;Incident&gt; getIncidents() throws HygieiaException{
+		List&lt;Incident&gt; incidentList;
+<span class="nc" id="L165">		incidentList = getIncidentList();</span>
+<span class="nc" id="L166">		return incidentList;</span>
+	}
+
+	/**
+	 *
+	 * Returns List&lt;Cmdb&gt; of Apps
+	 * @return List&lt;Cmdb&gt;
+	 */
+	private List&lt;Cmdb&gt; getAppList(String status) throws HygieiaException{
+		List&lt;Cmdb&gt; appList;
+
+<span class="nc" id="L177">		HpsmSoapModel hpsmSoapModel = new HpsmSoapModel();</span>
+<span class="nc" id="L178">        hpsmSoapModel.setItemSubType(hpsmSettings.getAppSubType());</span>
+<span class="nc" id="L179">        hpsmSoapModel.setRequestTypeName(hpsmSettings.getDetailsRequestType());</span>
+<span class="nc" id="L180">        hpsmSoapModel.setSoapAction(hpsmSettings.getDetailsSoapAction());</span>
+<span class="nc" id="L181">        hpsmSoapModel.setStatus(status);</span>
+
+<span class="nc" id="L183">		appList = getConfigurationItemList(hpsmSoapModel);</span>
+
+<span class="nc" id="L185">		return appList;</span>
+	}
+
+	/**
+	 *
+	 * @return  Returns List&lt;Cmdb&gt; of Components
+	 */
+	private List&lt;Cmdb&gt; getComponentList(String status) throws HygieiaException{
+		List&lt;Cmdb&gt; componentList;
+<span class="nc" id="L194">        HpsmSoapModel hpsmSoapModel = new HpsmSoapModel();</span>
+
+<span class="nc" id="L196">		hpsmSoapModel.setItemSubType(hpsmSettings.getCompSubType());</span>
+<span class="nc" id="L197">        hpsmSoapModel.setItemType(hpsmSettings.getCompType());</span>
+<span class="nc" id="L198">        hpsmSoapModel.setSoapAction(hpsmSettings.getDetailsSoapAction());</span>
+<span class="nc" id="L199">        hpsmSoapModel.setRequestTypeName(hpsmSettings.getDetailsRequestType());</span>
+<span class="nc" id="L200">        hpsmSoapModel.setStatus(status);</span>
+
+<span class="nc" id="L202">		componentList = getConfigurationItemList(hpsmSoapModel);</span>
+
+<span class="nc" id="L204">        return componentList;</span>
+	}
+
+	/**
+	 *
+	 * Returns List&lt;Cmdb&gt; of Environments
+	 * @return List&lt;Cmdb&gt;
+	 */
+	private List&lt;Cmdb&gt; getEnvironmentList(String status) throws HygieiaException{
+		List&lt;Cmdb&gt; componentList;
+<span class="nc" id="L214">		HpsmSoapModel hpsmSoapModel = new HpsmSoapModel();</span>
+
+<span class="nc" id="L216">		hpsmSoapModel.setItemSubType(hpsmSettings.getEnvSubType());</span>
+<span class="nc" id="L217">		hpsmSoapModel.setItemType(hpsmSettings.getEnvType());</span>
+<span class="nc" id="L218">		hpsmSoapModel.setSoapAction(hpsmSettings.getDetailsSoapAction());</span>
+<span class="nc" id="L219">		hpsmSoapModel.setRequestTypeName(hpsmSettings.getDetailsRequestType());</span>
+<span class="nc" id="L220">		hpsmSoapModel.setStatus(status);</span>
+
+<span class="nc" id="L222">		componentList = getConfigurationItemList(hpsmSoapModel);</span>
+
+<span class="nc" id="L224">		return componentList;</span>
+	}
+
+
+	/**
+	 * Takes hpsmSoapModel with settings set. Makes SOAP call and returns  List &lt;Cmdb&gt; with details
+	 * @param hpsmSoapModel
+	 * @return
+	 */
+	private List&lt;Cmdb&gt; getConfigurationItemList(HpsmSoapModel hpsmSoapModel) throws  HygieiaException{
+<span class="nc" id="L234">		List&lt;Cmdb&gt; configurationItemList = new ArrayList&lt;&gt;();</span>
+
+<span class="nc" id="L236">		boolean getMore = true;</span>
+<span class="nc" id="L237">		int startValue = 0;</span>
+<span class="nc bnc" id="L238" title="All 2 branches missed.">		while(getMore){</span>
+
+<span class="nc" id="L240">			String batchLimit = hpsmSettings.getCmdbBatchLimit();</span>
+<span class="nc" id="L241">			int returnLimit = Integer.parseInt(batchLimit);</span>
+
+
+<span class="nc" id="L244">			String newStart = Integer.toString(startValue);</span>
+<span class="nc" id="L245">			String soapString = getSoapMessage(hpsmSoapModel,newStart, batchLimit, SoapRequestType.CMDB);</span>
+<span class="nc" id="L246">			String response = makeSoapCall(soapString, hpsmSoapModel);</span>
+
+<span class="nc" id="L248">			Document doc = responseToDoc(response);</span>
+<span class="nc" id="L249">			NodeList responseNodeList = doc.getElementsByTagName(&quot;RetrieveDeviceListResponse&quot;);</span>
+
+<span class="nc" id="L251">			String more = &quot;&quot;;</span>
+<span class="nc" id="L252">			String status = &quot;&quot;;</span>
+<span class="nc bnc" id="L253" title="All 2 branches missed.">			for (int i = 0; i &lt; responseNodeList.getLength(); i++) {</span>
+<span class="nc" id="L254">				NamedNodeMap instanceChildNodes = responseNodeList.item(i).getAttributes();</span>
+<span class="nc" id="L255">				more = instanceChildNodes.getNamedItem(&quot;more&quot;).getNodeValue();</span>
+<span class="nc" id="L256">				status = instanceChildNodes.getNamedItem(&quot;status&quot;).getNodeValue();</span>
+
+			}
+
+<span class="nc" id="L260">			configurationItemList.addAll(documentToCmdbDetailsList(doc));</span>
+
+<span class="nc bnc" id="L262" title="All 8 branches missed.">			if(more == null || !more.equals(&quot;1&quot;) || status == null || !status.equals(&quot;SUCCESS&quot;)){</span>
+<span class="nc" id="L263">				getMore = false;</span>
+<span class="nc" id="L264">				LOG.info(&quot;No more items retrieved. Item count &quot; + configurationItemList.size());</span>
+			}
+<span class="nc" id="L266">			startValue += returnLimit;</span>
+<span class="nc" id="L267">		}</span>
+
+<span class="nc" id="L269">		return configurationItemList;</span>
+	}
+
+	private List &lt;Cmdb&gt; documentToCmdbDetailsList(Document doc) throws  HygieiaException{
+<span class="nc" id="L273">        List &lt;Cmdb&gt; returnList = new ArrayList&lt;&gt;();</span>
+		try {
+<span class="nc bnc" id="L275" title="All 2 branches missed.">			for(Node n: XmlUtil.asList(doc.getElementsByTagName(&quot;instance&quot;))){</span>
+<span class="nc" id="L276">				Map xmlMap = XmlUtil.getElementKeyValue(n.getChildNodes());</span>
+<span class="nc" id="L277">				returnList.addAll(getCmdbItemFromXmlMap(xmlMap));</span>
+<span class="nc" id="L278">			}</span>
+<span class="nc" id="L279">		}catch(Exception e){</span>
+<span class="nc" id="L280">			LOG.error(e);</span>
+<span class="nc" id="L281">		}</span>
+<span class="nc" id="L282">		return returnList;</span>
+	}
+
+	/**
+	 *
+	 * Returns List&lt;ChangeOrder&gt; of Change Orders
+	 * @return List&lt;ChangeOrder&gt;
+	 */
+	private List&lt;ChangeOrder&gt; getChangeOrderList() throws HygieiaException{
+		List&lt;ChangeOrder&gt; changeOrderList;
+<span class="nc" id="L292">		String limit = hpsmSettings.getChangeOrderReturnLimit();</span>
+
+<span class="nc" id="L294">		HpsmSoapModel hpsmSoapModel = new HpsmSoapModel();</span>
+<span class="nc" id="L295">		hpsmSoapModel.setRequestTypeName(hpsmSettings.getChangeOrderRequestType());</span>
+<span class="nc" id="L296">		hpsmSoapModel.setSoapAction(hpsmSettings.getChangeOrderSoapAction());</span>
+
+<span class="nc" id="L298">		String soapString = getSoapMessage(hpsmSoapModel,&quot;&quot;,limit, SoapRequestType.CHANGE_ORDER);</span>
+
+<span class="nc" id="L300">		String response  = makeSoapCall(soapString, hpsmSoapModel);</span>
+
+<span class="nc" id="L302">		changeOrderList = responseToChangeOrderList(response);</span>
+
+<span class="nc" id="L304">		return changeOrderList;</span>
+	}
+	private List &lt;ChangeOrder&gt; responseToChangeOrderList(String response) {
+<span class="nc" id="L307">		List &lt;ChangeOrder&gt; returnList = new ArrayList&lt;&gt;();</span>
+		try {
+
+<span class="nc" id="L310">			Document doc = responseToDoc(response);</span>
+<span class="nc bnc" id="L311" title="All 2 branches missed.">			for(Node n: XmlUtil.asList(doc.getElementsByTagName(&quot;instance&quot;))){</span>
+<span class="nc" id="L312">				Map headerMap = XmlUtil.getElementKeyValueByTag(n.getChildNodes(), &quot;header&quot;);</span>
+<span class="nc" id="L313">				Map instanceMap = XmlUtil.getElementKeyValue(n.getChildNodes());</span>
+<span class="nc bnc" id="L314" title="All 2 branches missed.">				if(instanceMap.containsKey(HpsmCollectorConstants.CHANGE_SERVICE)){</span>
+<span class="nc" id="L315">					headerMap.put(HpsmCollectorConstants.CHANGE_SERVICE,instanceMap.get(HpsmCollectorConstants.CHANGE_SERVICE));</span>
+				}
+<span class="nc bnc" id="L317" title="All 4 branches missed.">				if(headerMap != null &amp;&amp; !headerMap.isEmpty()){</span>
+<span class="nc" id="L318">					returnList.addAll(getChangeFromXmlMap(headerMap));</span>
+				}
+
+<span class="nc" id="L321">			}</span>
+
+<span class="nc" id="L323">		}catch(Exception e){</span>
+<span class="nc" id="L324">			LOG.error(e);</span>
+<span class="nc" id="L325">		}</span>
+
+<span class="nc" id="L327">		return returnList;</span>
+	}
+
+	/**
+	 *
+	 * Returns List&lt;Incident&gt; of Incidents
+	 * @return List&lt;Incident&gt;
+	 */
+	private List&lt;Incident&gt; getIncidentList() throws HygieiaException{
+		List&lt;Incident&gt; incidentList;
+<span class="nc" id="L337">		String limit = hpsmSettings.getIncidentReturnLimit();</span>
+
+<span class="nc" id="L339">		HpsmSoapModel hpsmSoapModel = new HpsmSoapModel();</span>
+<span class="nc" id="L340">		hpsmSoapModel.setRequestTypeName(hpsmSettings.getIncidentRequestType());</span>
+<span class="nc" id="L341">		hpsmSoapModel.setSoapAction(hpsmSettings.getIncidentSoapAction());</span>
+
+<span class="nc" id="L343">		String soapString = getSoapMessage(hpsmSoapModel, &quot;&quot;, limit, SoapRequestType.INCIDENT );</span>
+
+<span class="nc" id="L345">		String response  = makeSoapCall(soapString, hpsmSoapModel);</span>
+
+<span class="nc" id="L347">		incidentList = responseToIncidentList(response);</span>
+
+<span class="nc" id="L349">		return incidentList;</span>
+	}
+	private List &lt;Incident&gt; responseToIncidentList(String response) {
+<span class="nc" id="L352">		List &lt;Incident&gt; returnList = new ArrayList&lt;&gt;();</span>
+		try {
+<span class="nc" id="L354">			Document doc = responseToDoc(response);</span>
+<span class="nc bnc" id="L355" title="All 2 branches missed.">			for(Node n: XmlUtil.asList(doc.getElementsByTagName(&quot;instance&quot;))){</span>
+<span class="nc" id="L356">				Map xmlMap = XmlUtil.getElementKeyValue(n.getChildNodes());</span>
+<span class="nc" id="L357">				returnList.addAll(getIncidentFromXmlMap(xmlMap));</span>
+<span class="nc" id="L358">			}</span>
+<span class="nc" id="L359">		}catch(Exception e){</span>
+<span class="nc" id="L360">			LOG.error(e);</span>
+<span class="nc" id="L361">		}</span>
+<span class="nc" id="L362">		return returnList;</span>
+	}
+
+	/**
+	 * Returns the type of the configuration item.
+	 * @param cmdb
+	 * @return the type of the configuration item.
+	 */
+	private String getItemType(Cmdb cmdb) {
+<span class="nc" id="L371">		String itemType = null;</span>
+<span class="nc" id="L372">		String subType = cmdb.getConfigurationItemSubType();</span>
+<span class="nc" id="L373">		String type = cmdb.getConfigurationItemType();</span>
+
+<span class="nc" id="L375">		String hpsmSettingsSubType = hpsmSettings.getAppSubType();</span>
+<span class="nc" id="L376">		String hpsmSettingsType = hpsmSettings.getAppType();</span>
+
+<span class="nc" id="L378">		boolean typeCheck = false;</span>
+<span class="nc" id="L379">		boolean subTypeCheck = false;</span>
+
+<span class="nc bnc" id="L381" title="All 2 branches missed.">		if(!&quot;&quot;.equals(hpsmSettingsType)){</span>
+<span class="nc" id="L382">			typeCheck = true;</span>
+		}
+<span class="nc bnc" id="L384" title="All 2 branches missed.">		if(!&quot;&quot;.equals(hpsmSettingsSubType)){</span>
+<span class="nc" id="L385">			subTypeCheck = true;</span>
+		}
+
+<span class="nc bnc" id="L388" title="All 4 branches missed.">		if(!typeCheck &amp;&amp; subTypeCheck){</span>
+<span class="nc bnc" id="L389" title="All 4 branches missed.">			if(subType != null &amp;&amp; subType.equals(hpsmSettings.getAppSubType())){</span>
+<span class="nc" id="L390">				itemType = APP_TYPE;</span>
+			}
+<span class="nc bnc" id="L392" title="All 4 branches missed.">			else if(subType != null &amp;&amp; subType.equals(hpsmSettings.getCompSubType())){</span>
+<span class="nc" id="L393">				itemType = COMPONENT_TYPE;</span>
+			}
+<span class="nc bnc" id="L395" title="All 4 branches missed.">			else if(subType != null &amp;&amp; subType.equals(hpsmSettings.getEnvSubType())) {</span>
+<span class="nc" id="L396">				itemType = ENVIRONMENT_TYPE;</span>
+			}
+<span class="nc bnc" id="L398" title="All 4 branches missed.">		}else if(typeCheck &amp;&amp; !subTypeCheck){</span>
+<span class="nc bnc" id="L399" title="All 4 branches missed.">			if(type != null &amp;&amp; type.equals(hpsmSettings.getAppType())){</span>
+<span class="nc" id="L400">				itemType = APP_TYPE;</span>
+			}
+<span class="nc bnc" id="L402" title="All 4 branches missed.">			else if(type != null &amp;&amp; type.equals(hpsmSettings.getCompType())){</span>
+<span class="nc" id="L403">				itemType = COMPONENT_TYPE;</span>
+			}
+<span class="nc bnc" id="L405" title="All 4 branches missed.">			else if(type != null &amp;&amp; type.equals(hpsmSettings.getEnvType())) {</span>
+<span class="nc" id="L406">				itemType = ENVIRONMENT_TYPE;</span>
+			}
+		}else{
+<span class="nc bnc" id="L409" title="All 8 branches missed.">			if(subType != null &amp;&amp; subType.equals(hpsmSettings.getAppSubType()) &amp;&amp; type != null &amp;&amp; type.equals(hpsmSettings.getAppType())){</span>
+<span class="nc" id="L410">				itemType = APP_TYPE;</span>
+			}
+<span class="nc bnc" id="L412" title="All 8 branches missed.">			else if(subType != null &amp;&amp; subType.equals(hpsmSettings.getCompSubType()) &amp;&amp; type != null &amp;&amp; type.equals(hpsmSettings.getCompType())){</span>
+<span class="nc" id="L413">				itemType = COMPONENT_TYPE;</span>
+			}
+<span class="nc bnc" id="L415" title="All 8 branches missed.">			else if(subType != null &amp;&amp; subType.equals(hpsmSettings.getEnvSubType()) &amp;&amp; type != null &amp;&amp; type.equals(hpsmSettings.getEnvType())){</span>
+<span class="nc" id="L416">				itemType = ENVIRONMENT_TYPE;</span>
+			}
+
+		}
+
+<span class="nc" id="L421">		return itemType;</span>
+	}
+	/**
+	 *  Converts String response into document for parsing
+	 * @param response SOAP response required for creation of Document
+	 * @return Document Object
+	 */
+	private Document responseToDoc(String response){
+
+<span class="nc" id="L430">		Document doc = null;</span>
+
+		try {
+
+<span class="nc" id="L434">			DocumentBuilderFactory factory = new DocumentBuilderFactoryImpl();</span>
+<span class="nc" id="L435">			DocumentBuilderFactory.newInstance();</span>
+<span class="nc" id="L436">			DocumentBuilder builder =  factory.newDocumentBuilder();</span>
+<span class="nc" id="L437">			ByteArrayInputStream input =  new ByteArrayInputStream(response.getBytes(&quot;UTF-8&quot;));</span>
+<span class="nc" id="L438">			doc = builder.parse(input);</span>
+
+<span class="nc" id="L440">		} catch (ParserConfigurationException e) {</span>
+<span class="nc" id="L441">			LOG.error(&quot;ParserConfigurationException&quot;, e);</span>
+<span class="nc" id="L442">		} catch (UnsupportedEncodingException e) {</span>
+<span class="nc" id="L443">			LOG.error(&quot;UnsupportedEncodingException&quot;, e);</span>
+<span class="nc" id="L444">		} catch (IOException e) {</span>
+<span class="nc" id="L445">			LOG.error(&quot;IOException&quot;, e);</span>
+<span class="nc" id="L446">		} catch (SAXException e) {</span>
+<span class="nc" id="L447">			LOG.error(&quot;SAXException&quot;, e);</span>
+<span class="nc" id="L448">		}</span>
+
+
+<span class="nc" id="L451">		return doc;</span>
+	}
+
+	/**
+	 *  Start SOAP connection
+	 */
+	private void startHttpConnection(){
+<span class="nc" id="L458">		server = hpsmSettings.getServer();</span>
+<span class="nc" id="L459">		port = hpsmSettings.getPort();</span>
+<span class="nc" id="L460">		protocol = hpsmSettings.getProtocol() + &quot;://&quot;;</span>
+<span class="nc" id="L461">		resource = hpsmSettings.getResource();</span>
+<span class="nc" id="L462">		userName = hpsmSettings.getUser();</span>
+<span class="nc" id="L463">		password = hpsmSettings.getPass();</span>
+
+<span class="nc bnc" id="L465" title="All 2 branches missed.">		if(!usedClient){</span>
+<span class="nc" id="L466">			strURL = protocol + server + &quot;:&quot; + port + &quot;/&quot;</span>
+					+ resource;
+			// Prepare HTTP post
+<span class="nc" id="L469">			post = new PostMethod(strURL);</span>
+
+
+			// Get HTTP client
+<span class="nc" id="L473">			httpclient.getParams().setAuthenticationPreemptive(true);</span>
+
+<span class="nc" id="L475">			Credentials defaultcreds = new UsernamePasswordCredentials(userName,</span>
+					password);
+<span class="nc" id="L477">			httpclient.getState().setCredentials(</span>
+					new AuthScope(server, port, AuthScope.ANY_REALM), defaultcreds);
+<span class="nc" id="L479">			usedClient = true;</span>
+		}
+
+<span class="nc" id="L482">	}</span>
+
+    /**
+     * Ends SOAP Connection
+     */
+	private void stopHttpConnection() {
+<span class="nc bnc" id="L488" title="All 4 branches missed.">		if(post != null &amp;&amp; usedClient){</span>
+<span class="nc" id="L489">			post.releaseConnection();</span>
+		}
+<span class="nc bnc" id="L491" title="All 4 branches missed.">		if(manager != null &amp;&amp; usedClient){</span>
+<span class="nc" id="L492">			manager.shutdown();</span>
+		}
+<span class="nc" id="L494">		usedClient = false;</span>
+<span class="nc" id="L495">	}</span>
+	private String getResponseString(InputStream in) throws IOException {
+<span class="nc" id="L497">		ByteArrayOutputStream outputStream = new ByteArrayOutputStream();</span>
+<span class="nc" id="L498">		byte[] byteArray = new byte[1024];</span>
+		int count;
+<span class="nc bnc" id="L500" title="All 2 branches missed.">		while ((count = in.read(byteArray, 0, byteArray.length)) &gt; 0) {</span>
+<span class="nc" id="L501">			outputStream.write(byteArray, 0, count);</span>
+		}
+<span class="nc" id="L503">		return new String(outputStream.toByteArray(), &quot;UTF-8&quot;);</span>
+	}
+    /**
+     *  Makes SOAP request for given soap message
+     * @param soapMessageString Generated SOAP ready for POST
+     * @param hpsmSoapModel hpsmSoapModel
+     * @return Soap response
+     */
+    private String makeSoapCall(String soapMessageString, HpsmSoapModel hpsmSoapModel) throws HygieiaException{
+
+<span class="nc" id="L513">        String requestAction = hpsmSoapModel.getSoapAction();</span>
+<span class="nc" id="L514">        String response = &quot;&quot;;</span>
+<span class="nc" id="L515">        contentType = hpsmSettings.getContentType();</span>
+<span class="nc" id="L516">        charset = hpsmSettings.getCharset();</span>
+
+        try {
+<span class="nc" id="L519">            startHttpConnection();</span>
+
+<span class="nc" id="L521">            RequestEntity entity = new StringRequestEntity(</span>
+                    soapMessageString, contentType, charset);
+<span class="nc" id="L523">            post.setRequestEntity(entity);</span>
+
+<span class="nc" id="L525">            post.setRequestHeader(&quot;SOAPAction&quot;, requestAction);</span>
+
+<span class="nc" id="L527">            httpclient.executeMethod(post);</span>
+
+<span class="nc" id="L529">            response = getResponseString(post.getResponseBodyAsStream());</span>
+
+<span class="nc bnc" id="L531" title="All 2 branches missed.">            if(!&quot;OK&quot;.equals(post.getStatusText())){</span>
+<span class="nc" id="L532">                throw new HygieiaException(&quot;Soap Request Failure: &quot; +  post.getStatusCode() + &quot;|response: &quot; +response, HygieiaException.BAD_DATA);</span>
+            }
+
+<span class="nc" id="L535">            stopHttpConnection();</span>
+<span class="nc" id="L536">        } catch (IOException e) {</span>
+<span class="nc" id="L537">            LOG.error(&quot;Error while trying to make soap call: &quot; + e);</span>
+<span class="nc" id="L538">        }</span>
+<span class="nc" id="L539">        return response;</span>
+
+    }
+
+	private String getSoapMessage(HpsmSoapModel hpsmSoapModel, String start, String limit, SoapRequestType type){
+<span class="nc" id="L544">		String strMsg = &quot;&quot;;</span>
+		SOAPMessage soapMsg;
+<span class="nc" id="L546">		String requestTypeName = hpsmSoapModel.getRequestTypeName();</span>
+
+		try {
+<span class="nc" id="L549">			MessageFactory factory = MessageFactory.newInstance();</span>
+
+<span class="nc" id="L551">			soapMsg = factory.createMessage();</span>
+
+<span class="nc" id="L553">			SOAPPart part = soapMsg.getSOAPPart();</span>
+
+<span class="nc" id="L555">			SOAPEnvelope envelope = part.getEnvelope();</span>
+<span class="nc" id="L556">			envelope.addNamespaceDeclaration(&quot;ns&quot;, &quot;http://schemas.hp.com/SM/7&quot;);</span>
+<span class="nc" id="L557">			envelope.addNamespaceDeclaration(&quot;com&quot;, &quot;http://schemas.hp.com/SM/7/Common&quot;);</span>
+<span class="nc" id="L558">			envelope.addNamespaceDeclaration(&quot;xm&quot;, &quot;http://www.w3.org/2005/05/xmlmime&quot;);</span>
+
+<span class="nc" id="L560">			SOAPBody body = envelope.getBody();</span>
+
+<span class="nc" id="L562">			SOAPBodyElement requestType = body.addBodyElement(envelope.createName(requestTypeName,&quot;ns&quot;, &quot;&quot;));</span>
+
+<span class="nc bnc" id="L564" title="All 4 branches missed.">			if(limit != null &amp;&amp; !limit.isEmpty()) {</span>
+<span class="nc" id="L565">				QName name1 = new QName(&quot;count&quot;);</span>
+<span class="nc" id="L566">				requestType.addAttribute(name1, limit);</span>
+			}
+<span class="nc bnc" id="L568" title="All 4 branches missed.">			if(start != null &amp;&amp; !start.isEmpty()) {</span>
+<span class="nc" id="L569">				QName qNameStart = new QName(&quot;start&quot;);</span>
+<span class="nc" id="L570">				requestType.addAttribute(qNameStart, start);</span>
+			}
+<span class="nc" id="L572">			QName qNameIgnoreEmptyValues = new QName(&quot;ignoreEmptyElements&quot;);</span>
+<span class="nc" id="L573">			requestType.addAttribute(qNameIgnoreEmptyValues, &quot;true&quot;);</span>
+
+<span class="nc" id="L575">			SOAPBodyElement modelTag = body.addBodyElement(envelope.createName(&quot;model&quot;,&quot;ns&quot;, &quot;&quot;));</span>
+
+<span class="nc" id="L577">			SOAPBodyElement keysTag = body.addBodyElement(envelope.createName(&quot;keys&quot;,&quot;ns&quot;, &quot;&quot;));</span>
+
+			// creates instance tag
+<span class="nc" id="L580">			body.addBodyElement(envelope.createName(&quot;instance&quot;, &quot;ns&quot;, &quot;&quot;));</span>
+
+<span class="nc bnc" id="L582" title="All 2 branches missed.">			if(type.equals(SoapRequestType.CHANGE_ORDER)){</span>
+<span class="nc" id="L583">				handleChangeSoapMessage(keysTag);</span>
+<span class="nc bnc" id="L584" title="All 2 branches missed.">			}else if(type.equals(SoapRequestType.INCIDENT)){</span>
+<span class="nc" id="L585">				handleIncidentSoapMessage(keysTag);</span>
+			}else{
+<span class="nc" id="L587">				handleCmdbSoapMessage(hpsmSoapModel, envelope, keysTag);</span>
+			}
+
+<span class="nc" id="L590">			modelTag.addChildElement(keysTag);</span>
+
+<span class="nc" id="L592">			requestType.addChildElement(modelTag);</span>
+
+<span class="nc" id="L594">			ByteArrayOutputStream out = new ByteArrayOutputStream();</span>
+<span class="nc" id="L595">			soapMsg.writeTo(out);</span>
+<span class="nc" id="L596">			strMsg = new String(out.toByteArray());</span>
+
+<span class="nc" id="L598">		} catch (SOAPException e) {</span>
+<span class="nc" id="L599">			LOG.error(&quot;SOAPException: &quot; + e);</span>
+<span class="nc" id="L600">		} catch (UnsupportedEncodingException e) {</span>
+<span class="nc" id="L601">			LOG.error(&quot;UnsupportedEncodingException: &quot; + e);</span>
+<span class="nc" id="L602">		} catch (IOException e) {</span>
+<span class="nc" id="L603">			LOG.error(&quot;IOException: &quot; + e);</span>
+<span class="nc" id="L604">		}</span>
+
+<span class="nc" id="L606">		return strMsg;</span>
+	}
+
+    private void handleCmdbSoapMessage(HpsmSoapModel hpsmSoapModel, SOAPEnvelope envelope, SOAPBodyElement keysTag) throws SOAPException{
+
+<span class="nc" id="L611">		String itemType = hpsmSoapModel.getItemType();</span>
+<span class="nc" id="L612">		String itemSubType = hpsmSoapModel.getItemSubType();</span>
+<span class="nc" id="L613">		String item = hpsmSoapModel.getItem();</span>
+<span class="nc" id="L614">		String status = hpsmSoapModel.getStatus();</span>
+
+<span class="nc" id="L616">		SOAPBody body = envelope.getBody();</span>
+
+<span class="nc bnc" id="L618" title="All 4 branches missed.">		if (itemType != null &amp;&amp; !itemType.isEmpty()) {</span>
+
+<span class="nc" id="L620">			SOAPBodyElement configItemType = body.addBodyElement(envelope.createName(&quot;ConfigurationItemType&quot;, &quot;ns&quot;, &quot;&quot;));</span>
+<span class="nc" id="L621">			configItemType.addTextNode(itemType);</span>
+<span class="nc" id="L622">			keysTag.addChildElement(configItemType);</span>
+
+		}
+<span class="nc bnc" id="L625" title="All 4 branches missed.">		if (itemSubType != null &amp;&amp; !itemSubType.isEmpty()) {</span>
+
+<span class="nc" id="L627">			SOAPBodyElement configItemSubType = body.addBodyElement(envelope.createName(&quot;ConfigurationItemSubType&quot;, &quot;ns&quot;, &quot;&quot;));</span>
+<span class="nc" id="L628">			configItemSubType.addTextNode(itemSubType);</span>
+<span class="nc" id="L629">			keysTag.addChildElement(configItemSubType);</span>
+
+		}
+<span class="nc bnc" id="L632" title="All 4 branches missed.">		if (item != null &amp;&amp; !item.isEmpty()) {</span>
+
+<span class="nc" id="L634">			SOAPBodyElement configItem = body.addBodyElement(envelope.createName(&quot;ConfigurationItem&quot;, &quot;ns&quot;, &quot;&quot;));</span>
+<span class="nc" id="L635">			configItem.addTextNode(item);</span>
+<span class="nc" id="L636">			keysTag.addChildElement(configItem);</span>
+
+		}
+<span class="nc bnc" id="L639" title="All 4 branches missed.">		if (status != null &amp;&amp; !status.isEmpty()) {</span>
+
+<span class="nc" id="L641">			SOAPBodyElement configItemStatus = body.addBodyElement(envelope.createName(&quot;Status&quot;, &quot;ns&quot;, &quot;&quot;));</span>
+<span class="nc" id="L642">			configItemStatus.addTextNode(status);</span>
+<span class="nc" id="L643">			keysTag.addChildElement(configItemStatus);</span>
+
+		}
+<span class="nc" id="L646">	}</span>
+
+
+	private void handleIncidentSoapMessage(SOAPBodyElement keysTag) throws SOAPException{
+
+<span class="nc" id="L651">		QName query = new QName(&quot;query&quot;);</span>
+
+		// Incidents can be queried based on time.  This code retrieves the incidents since
+		// the last time it was run.  If that time cannot be determined, it counts backwards
+		// the number of days specified in hpsm.properties and retrieves those incidents.
+
+		// Get current date/time
+<span class="nc" id="L658">		Date nowDate = new Date();</span>
+
+		// Get the last time this collector was run
+<span class="nc" id="L661">		Date previousDate = new Date(this.lastExecuted);</span>
+
+		// Convert the above times to milliseconds for comparison
+<span class="nc" id="L664">		long nowMillis = nowDate.getTime();</span>
+<span class="nc" id="L665">		long previousMillis = previousDate.getTime();</span>
+
+		// calculate the difference in days between the two dates by dividing the difference by the number of milliseconds in a day
+<span class="nc" id="L668">		int diffInDays = (int) (Math.abs((nowMillis - previousMillis)) / MILLISECONDS_IN_DAY);</span>
+
+		// get the number of days specified in the hpsm.properties file
+<span class="nc" id="L671">		int incidentDays = hpsmSettings.getIncidentDays();</span>
+
+		// IF there are no incidents in the collection, or the collection does not exist
+		// OR if the times are reversed
+		// OR the number of days since collector last ran is greater than the requested number of days
+		// THEN the last time the collector ran is irrelevant so use the number of days in hpsm.properties
+<span class="nc bnc" id="L677" title="All 6 branches missed.">		if((incidentCount &lt; 1) || (previousMillis &gt; nowMillis) || (diffInDays &gt; incidentDays)){</span>
+<span class="nc" id="L678">			Calendar cal = Calendar.getInstance();</span>
+<span class="nc" id="L679">			cal.setTime(nowDate);</span>
+<span class="nc" id="L680">			cal.add(Calendar.DATE, - incidentDays);</span>
+<span class="nc" id="L681">			previousDate = cal.getTime();</span>
+		}
+
+<span class="nc" id="L684">		SimpleDateFormat dateFormat = new SimpleDateFormat(QUERY_DATE_FORMAT);</span>
+<span class="nc" id="L685">		String now = dateFormat.format(nowDate);</span>
+<span class="nc" id="L686">		String previous = dateFormat.format(previousDate);</span>
+
+<span class="nc" id="L688">		String format = hpsmSettings.getIncidentQuery();</span>
+<span class="nc bnc" id="L689" title="All 4 branches missed.">		if(format == null || format.isEmpty()){</span>
+<span class="nc" id="L690">			format = DEFAULT_INCIDENT_QUERY_FORMAT;</span>
+		}
+
+<span class="nc" id="L693">		Object[] args = new Object[]{ previous, now };</span>
+<span class="nc" id="L694">		String queryString = MessageFormat.format(format, args);</span>
+
+<span class="nc" id="L696">		keysTag.addAttribute(query,  queryString);</span>
+
+<span class="nc" id="L698">	}</span>
+
+	private void handleChangeSoapMessage(SOAPBodyElement keysTag) throws SOAPException{
+
+<span class="nc" id="L702">		QName query = new QName(&quot;query&quot;);</span>
+
+		// Changes can be queried based on time.  This code retrieves the changes since
+		// the last time it was run.  If that time cannot be determined, it counts backwards
+		// the number of days specified in hpsm.properties and retrieves those changes.
+
+		// Get current date/time
+<span class="nc" id="L709">		Date nowDate = new Date();</span>
+
+		// Get the last time this collector was run
+<span class="nc" id="L712">		Date previousDate = new Date(this.lastExecuted);</span>
+
+		// Convert the above times to milliseconds for comparison
+<span class="nc" id="L715">		long nowMillis = nowDate.getTime();</span>
+<span class="nc" id="L716">		long previousMillis = previousDate.getTime();</span>
+
+		// calculate the difference in days between the two dates by dividing the difference by the number of milliseconds in a day
+<span class="nc" id="L719">		int diffInDays = (int) (Math.abs((nowMillis - previousMillis)) / MILLISECONDS_IN_DAY);</span>
+
+		// get the number of days specified in the hpsm.properties file
+<span class="nc" id="L722">		int changeDays = hpsmSettings.getChangeOrderDays();</span>
+
+		// IF there are no changess in the collection, or the collection does not exist
+		// OR if the times are reversed
+		// OR the number of days since collector last ran is greater than the requested number of days
+		// THEN the last time the collector ran is irrelevant so use the number of days in hpsm.properties
+<span class="nc bnc" id="L728" title="All 6 branches missed.">		if((changeCount &lt; 1) || (previousMillis &gt; nowMillis) || (diffInDays &gt; changeDays)){</span>
+<span class="nc" id="L729">			Calendar cal = Calendar.getInstance();</span>
+<span class="nc" id="L730">			cal.setTime(nowDate);</span>
+<span class="nc" id="L731">			cal.add(Calendar.DATE, - changeDays);</span>
+<span class="nc" id="L732">			previousDate = cal.getTime();</span>
+		}
+
+<span class="nc" id="L735">		SimpleDateFormat dateFormat = new SimpleDateFormat(QUERY_DATE_FORMAT);</span>
+<span class="nc" id="L736">		String now = dateFormat.format(nowDate);</span>
+<span class="nc" id="L737">		String previous = dateFormat.format(previousDate);</span>
+
+<span class="nc" id="L739">		String format = hpsmSettings.getChangeOrderQuery();</span>
+<span class="nc bnc" id="L740" title="All 4 branches missed.">		if(format == null || format.isEmpty()){</span>
+<span class="nc" id="L741">			format = DEFAULT_CHANGE_QUERY_FORMAT;</span>
+		}
+
+<span class="nc" id="L744">		Object[] args = new Object[]{ previous, now };</span>
+<span class="nc" id="L745">		String queryString = MessageFormat.format(format, args);</span>
+
+<span class="nc" id="L747">		keysTag.addAttribute(query,  queryString);</span>
+
+<span class="nc" id="L749">	}</span>
+	private List&lt;Cmdb&gt; getCmdbItemFromXmlMap(Map map) {
+<span class="nc bnc" id="L751" title="All 4 branches missed.">		if(map == null || map.isEmpty()) return new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L752" title="All 2 branches missed.">		if(getStringValueFromMap(map,HpsmCollectorConstants.CONFIGURATION_ITEM).isEmpty()) return new ArrayList&lt;&gt;();</span>
+
+<span class="nc" id="L754">		Cmdb cmdb = new Cmdb();</span>
+
+<span class="nc" id="L756">		cmdb.setConfigurationItem(getStringValueFromMap(map,HpsmCollectorConstants.CONFIGURATION_ITEM));</span>
+<span class="nc" id="L757">		cmdb.setConfigurationItemSubType(getStringValueFromMap(map,HpsmCollectorConstants.CONFIGURATION_ITEM_SUBTYPE));</span>
+<span class="nc" id="L758">		cmdb.setConfigurationItemType(getStringValueFromMap(map,HpsmCollectorConstants.CONFIGURATION_ITEM_TYPE));</span>
+<span class="nc" id="L759">		cmdb.setCommonName(getStringValueFromMap(map,HpsmCollectorConstants.COMMON_NAME));</span>
+<span class="nc" id="L760">		cmdb.setAssignmentGroup(getStringValueFromMap(map,HpsmCollectorConstants.ASSIGNMENT_GROUP));</span>
+<span class="nc" id="L761">		cmdb.setOwnerDept(getStringValueFromMap(map,HpsmCollectorConstants.OWNER_DEPT));</span>
+<span class="nc" id="L762">		cmdb.setAppServiceOwner(getStringValueFromMap(map,HpsmCollectorConstants.APP_SERVICE_OWNER));</span>
+<span class="nc" id="L763">		cmdb.setBusinessOwner(getStringValueFromMap(map,HpsmCollectorConstants.BUSINESS_OWNER));</span>
+<span class="nc" id="L764">		cmdb.setSupportOwner(getStringValueFromMap(map,HpsmCollectorConstants.SUPPORT_OWNER));</span>
+<span class="nc" id="L765">		cmdb.setDevelopmentOwner(getStringValueFromMap(map,HpsmCollectorConstants.DEVELOPMENT_OWNER));</span>
+<span class="nc" id="L766">		cmdb.setItemType(getItemType(cmdb));</span>
+<span class="nc" id="L767">		cmdb.setValidConfigItem(true);</span>
+<span class="nc" id="L768">		cmdb.setTimestamp(System.currentTimeMillis());</span>
+
+<span class="nc" id="L770">		List&lt;Cmdb&gt; list = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L771">		list.add(cmdb);</span>
+<span class="nc" id="L772">		return list;</span>
+	}
+	private List&lt;Incident&gt; getIncidentFromXmlMap(Map map) {
+<span class="nc bnc" id="L775" title="All 4 branches missed.">		if(map == null || map.isEmpty()) return new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L776" title="All 2 branches missed.">		if(getStringValueFromMap(map,HpsmCollectorConstants.INCIDENT_ID).isEmpty()) return new ArrayList&lt;&gt;();</span>
+
+<span class="nc" id="L778">		Incident incident = new Incident();</span>
+<span class="nc" id="L779">		incident.setIncidentID(getStringValueFromMap(map,HpsmCollectorConstants.INCIDENT_ID));</span>
+<span class="nc" id="L780">		incident.setCategory(getStringValueFromMap(map,HpsmCollectorConstants.INCIDENT_CATEGORY));</span>
+<span class="nc" id="L781">		incident.setOpenTime(getStringValueFromMap(map,HpsmCollectorConstants.INCIDENT_OPEN_TIME));</span>
+<span class="nc" id="L782">		String closedTime = getStringValueFromMap(map,HpsmCollectorConstants.INCIDENT_CLOSE_TIME);</span>
+<span class="nc bnc" id="L783" title="All 2 branches missed.">		if (!StringUtils.isEmpty(closedTime)) {</span>
+<span class="nc" id="L784">			incident.setClosedTime(closedTime);</span>
+		} else {
+<span class="nc" id="L786">			incident.setClosedTime(0L);</span>
+		}
+<span class="nc" id="L788">		incident.setOpenedBy(getStringValueFromMap(map,HpsmCollectorConstants.INCIDENT_OPEN_BY));</span>
+<span class="nc" id="L789">		incident.setUpdatedTime(getStringValueFromMap(map,HpsmCollectorConstants.INCIDENT_UPDATE_TIME));</span>
+<span class="nc" id="L790">		incident.setSeverity(getStringValueFromMap(map,HpsmCollectorConstants.INCIDENT_SEVERITY));</span>
+<span class="nc" id="L791">		incident.setPrimaryAssignmentGroup(getStringValueFromMap(map,HpsmCollectorConstants.INCIDENT_PRIMARY_ASSIGNMENT_GROUP));</span>
+<span class="nc" id="L792">		incident.setStatus(getStringValueFromMap(map,HpsmCollectorConstants.INCIDENT_STATUS));</span>
+<span class="nc" id="L793">		incident.setAffectedItem(getStringValueFromMap(map,HpsmCollectorConstants.INCIDENT_AFFECTED_ITEM));</span>
+<span class="nc" id="L794">		incident.setIncidentDescription(getStringValueFromMap(map,HpsmCollectorConstants.INCIDENT_DESCRIPTION));</span>
+
+<span class="nc" id="L796">		List&lt;Incident&gt; list = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L797">		list.add(incident);</span>
+<span class="nc" id="L798">		return list;</span>
+	}
+	private List&lt;ChangeOrder&gt; getChangeFromXmlMap(Map map) {
+<span class="nc bnc" id="L801" title="All 4 branches missed.">		if(map == null || map.isEmpty()) return new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L802" title="All 2 branches missed.">		if(getStringValueFromMap(map,HpsmCollectorConstants.CHANGE_ID).isEmpty()) return new ArrayList&lt;&gt;();</span>
+
+<span class="nc" id="L804">		ChangeOrder change = new ChangeOrder();</span>
+<span class="nc" id="L805">		change.setChangeID(getStringValueFromMap(map,HpsmCollectorConstants.CHANGE_ID));</span>
+<span class="nc" id="L806">		change.setCategory(getStringValueFromMap(map,HpsmCollectorConstants.CHANGE_CATEGORY));</span>
+<span class="nc" id="L807">		change.setStatus(getStringValueFromMap(map,HpsmCollectorConstants.CHANGE_STATUS));</span>
+<span class="nc" id="L808">		change.setApprovalStatus(getStringValueFromMap(map,HpsmCollectorConstants.CHANGE_APPROVAL_STATUS));</span>
+<span class="nc" id="L809">		change.setInitiatedBy(getStringValueFromMap(map,HpsmCollectorConstants.CHANGE_INITIATED_BY));</span>
+<span class="nc" id="L810">		change.setAssignedTo(getStringValueFromMap(map,HpsmCollectorConstants.CHANGE_ASSIGNED_TO));</span>
+<span class="nc" id="L811">		change.setAssignmentGroup(getStringValueFromMap(map,HpsmCollectorConstants.CHANGE_ASSIGNMENT_GROUP));</span>
+<span class="nc" id="L812">		change.setPlannedStart(getStringValueFromMap(map,HpsmCollectorConstants.CHANGE_PLANNED_START));</span>
+<span class="nc" id="L813">		change.setPlannedEnd(getStringValueFromMap(map,HpsmCollectorConstants.CHANGE_PLANNED_END));</span>
+<span class="nc" id="L814">		change.setReason(getStringValueFromMap(map,HpsmCollectorConstants.CHANGE_REASON));</span>
+<span class="nc" id="L815">		change.setPhase(getStringValueFromMap(map,HpsmCollectorConstants.CHANGE_PHASE));</span>
+<span class="nc" id="L816">		change.setRiskAssessment(getStringValueFromMap(map,HpsmCollectorConstants.CHANGE_RISK_ASSESSMENT));</span>
+<span class="nc" id="L817">		change.setDateEntered(getStringValueFromMap(map,HpsmCollectorConstants.CHANGE_DATE_ENTERED));</span>
+<span class="nc" id="L818">		change.setOpen(getStringValueFromMap(map,HpsmCollectorConstants.CHANGE_OPEN));</span>
+<span class="nc" id="L819">		change.setTitle(getStringValueFromMap(map,HpsmCollectorConstants.CHANGE_TITLE));</span>
+<span class="nc" id="L820">		change.setSubcategory(getStringValueFromMap(map,HpsmCollectorConstants.CHANGE_SUBCATEGORY));</span>
+<span class="nc" id="L821">		change.setChangeModel(getStringValueFromMap(map,HpsmCollectorConstants.CHANGE_MODEL));</span>
+<span class="nc" id="L822">		change.setService(getStringValueFromMap(map,HpsmCollectorConstants.CHANGE_SERVICE));</span>
+<span class="nc" id="L823">		List&lt;ChangeOrder&gt; list = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L824">		list.add(change);</span>
+<span class="nc" id="L825">		return list;</span>
+	}
+	private String getStringValueFromMap(Map map, String key){
+<span class="nc bnc" id="L828" title="All 2 branches missed.">		if(!map.containsKey(key)</span>
+<span class="nc bnc" id="L829" title="All 2 branches missed.">				|| map.get(key) == null</span>
+<span class="nc bnc" id="L830" title="All 2 branches missed.">				|| &quot;&quot;.equals(key)) return &quot;&quot;;</span>
+<span class="nc" id="L831">		return map.get(key).toString();</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

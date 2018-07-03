@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>DefaultSonar6Client.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">com.capitalone.dashboard:sonar-codequality-collector</a> &gt; <a href="index.source.html" class="el_package">com.capitalone.dashboard.collector</a> &gt; <span class="el_source">DefaultSonar6Client.java</span></div><h1>DefaultSonar6Client.java</h1><pre class="source lang-java linenums">package com.capitalone.dashboard.collector;
+
+import com.capitalone.dashboard.model.CodeQuality;
+import com.capitalone.dashboard.model.CodeQualityMetric;
+import com.capitalone.dashboard.model.CodeQualityMetricStatus;
+import com.capitalone.dashboard.model.CodeQualityType;
+import com.capitalone.dashboard.model.SonarProject;
+import com.capitalone.dashboard.util.SonarDashboardUrl;
+import com.capitalone.dashboard.util.Supplier;
+import org.apache.commons.codec.binary.Base64;
+import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Component;
+import org.springframework.web.client.RestClientException;
+import org.springframework.web.client.RestOperations;
+
+import java.math.BigDecimal;
+import java.nio.charset.Charset;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
+
+
+@Component
+public class DefaultSonar6Client implements SonarClient {
+<span class="fc" id="L37">    private static final Log LOG = LogFactory.getLog(DefaultSonar6Client.class);</span>
+
+    private static final String URL_RESOURCES = &quot;/api/components/search?qualifiers=TRK&amp;ps=500&quot;;
+    private static final String URL_RESOURCE_DETAILS = &quot;/api/measures/component?format=json&amp;componentId=%s&amp;metricKeys=%s&amp;includealerts=true&quot;;
+    private static final String URL_PROJECT_ANALYSES = &quot;/api/project_analyses/search?project=%s&quot;;
+    private static final String URL_QUALITY_PROFILES = &quot;/api/qualityprofiles/search&quot;;
+    private static final String URL_QUALITY_PROFILE_PROJECT_DETAILS = &quot;/api/qualityprofiles/projects?key=&quot;;
+    private static final String URL_QUALITY_PROFILE_CHANGES = &quot;/api/qualityprofiles/changelog?profileKey=&quot;;
+
+
+
+    private static final String DATE_FORMAT = &quot;yyyy-MM-dd'T'HH:mm:ssZ&quot;;
+    private static final String ID = &quot;id&quot;;
+    private static final String NAME = &quot;name&quot;;
+    private static final String KEY = &quot;key&quot;;
+    private static final String METRIC = &quot;metric&quot;;
+    private static final String MSR = &quot;measures&quot;;
+    private static final String VALUE = &quot;value&quot;;
+    private static final String STATUS_WARN = &quot;WARN&quot;;
+    private static final String STATUS_ALERT = &quot;ALERT&quot;;
+    private static final String DATE = &quot;date&quot;;
+    private static final String EVENTS = &quot;events&quot;;
+
+    private final RestOperations rest;
+    private final HttpEntity&lt;String&gt; httpHeaders;
+
+    private static final String MINUTES_FORMAT = &quot;%smin&quot;;
+    private static final String HOURS_FORMAT = &quot;%sh&quot;;
+    private static final String DAYS_FORMAT = &quot;%sd&quot;;
+    private static final int HOURS_IN_DAY = 8;
+    private static final int PAGE_SIZE=500;
+
+    @Autowired
+<span class="fc" id="L70">    public DefaultSonar6Client(Supplier&lt;RestOperations&gt; restOperationsSupplier, SonarSettings settings) {</span>
+<span class="fc" id="L71">        this.httpHeaders = new HttpEntity&lt;&gt;(</span>
+<span class="fc" id="L72">                this.createHeaders(settings.getUsername(), settings.getPassword())</span>
+        );
+<span class="fc" id="L74">        this.rest = restOperationsSupplier.get();</span>
+<span class="fc" id="L75">    }</span>
+
+    @Override
+    public List&lt;SonarProject&gt; getProjects(String instanceUrl) {
+<span class="fc" id="L79">        List&lt;SonarProject&gt; projects = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L80">        String url = instanceUrl + URL_RESOURCES;</span>
+
+        try {
+<span class="fc" id="L83">            String key = &quot;components&quot;;</span>
+<span class="fc" id="L84">            JSONArray jsonArray = getProjects(url, key);</span>
+<span class="fc bfc" id="L85" title="All 2 branches covered.">            for (Object obj : jsonArray) {</span>
+<span class="fc" id="L86">                JSONObject prjData = (JSONObject) obj;</span>
+
+<span class="fc" id="L88">                SonarProject project = new SonarProject();</span>
+<span class="fc" id="L89">                project.setInstanceUrl(instanceUrl);</span>
+<span class="fc" id="L90">                project.setProjectId(str(prjData, ID));</span>
+<span class="fc" id="L91">                project.setProjectName(str(prjData, NAME));</span>
+<span class="fc" id="L92">                projects.add(project);</span>
+<span class="fc" id="L93">            }</span>
+
+<span class="nc" id="L95">        } catch (ParseException e) {</span>
+<span class="nc" id="L96">            LOG.error(&quot;Could not parse response from: &quot; + url, e);</span>
+<span class="nc" id="L97">        } catch (RestClientException rce) {</span>
+<span class="nc" id="L98">            LOG.error(rce);</span>
+<span class="pc" id="L99">        }</span>
+
+<span class="fc" id="L101">        return projects;</span>
+    }
+
+    private JSONArray getProjects(String url, String key) throws ParseException {
+<span class="fc" id="L105">        Long totalRecords = getTotalCount(parseJsonObject(url, &quot;paging&quot;));</span>
+<span class="fc" id="L106">        int pages = (int) Math.ceil((double)totalRecords / PAGE_SIZE);</span>
+<span class="fc" id="L107">        JSONArray jsonArray = new JSONArray();</span>
+<span class="fc bfc" id="L108" title="All 2 branches covered.">        jsonArray = totalRecords &gt; PAGE_SIZE ? getProjects(url, key, pages, jsonArray): getProjects(url, key, jsonArray);</span>
+<span class="fc" id="L109">        return jsonArray;</span>
+    }
+
+    private JSONArray getProjects(String url, String key, JSONArray jsonArray) throws ParseException {
+<span class="fc" id="L113">        jsonArray.addAll(parseAsArray(url, key));</span>
+<span class="fc" id="L114">        return jsonArray;</span>
+    }
+
+    private JSONArray getProjects(String url, String key, int pages, JSONArray jsonArray) throws ParseException {
+<span class="fc bfc" id="L118" title="All 2 branches covered.">       for (int start=1;start&lt;=pages;start++){</span>
+<span class="fc" id="L119">            getProjects(url, key, jsonArray, start);</span>
+        }
+<span class="fc" id="L121">        return  jsonArray;</span>
+    }
+
+    private void getProjects(String url, String key, JSONArray jsonArray, int pageNumber) throws ParseException {
+<span class="fc" id="L125">        String urlFinal = url+&quot;&amp;p=&quot;+pageNumber;</span>
+<span class="fc" id="L126">        jsonArray.addAll(parseAsArray(urlFinal, key));</span>
+<span class="fc" id="L127">    }</span>
+
+    @Override
+    public CodeQuality currentCodeQuality(SonarProject project, String metrics) {
+<span class="fc" id="L131">        String url = String.format(</span>
+<span class="fc" id="L132">                project.getInstanceUrl() + URL_RESOURCE_DETAILS, project.getProjectId(), metrics);</span>
+
+        try {
+<span class="fc" id="L135">            ResponseEntity&lt;String&gt; response = rest.exchange(url, HttpMethod.GET, this.httpHeaders, String.class);</span>
+<span class="fc" id="L136">            JSONParser jsonParser = new JSONParser();</span>
+<span class="fc" id="L137">            JSONObject jsonObject = (JSONObject) jsonParser.parse(response.getBody());</span>
+<span class="fc" id="L138">            String key = &quot;component&quot;;</span>
+
+<span class="pc bpc" id="L140" title="1 of 2 branches missed.">            if (jsonObject != null) {</span>
+<span class="fc" id="L141">                JSONObject prjData = (JSONObject) jsonObject.get(key);</span>
+
+<span class="fc" id="L143">                CodeQuality codeQuality = new CodeQuality();</span>
+<span class="fc" id="L144">                codeQuality.setType(CodeQualityType.StaticAnalysis);</span>
+<span class="fc" id="L145">                codeQuality.setName(str(prjData, NAME));</span>
+<span class="fc" id="L146">                codeQuality.setUrl(new SonarDashboardUrl(project.getInstanceUrl(), str(prjData, KEY)).toString());</span>
+
+<span class="fc" id="L148">                url = String.format(</span>
+<span class="fc" id="L149">                        project.getInstanceUrl() + URL_PROJECT_ANALYSES, str(prjData, KEY));</span>
+<span class="fc" id="L150">                key = &quot;analyses&quot;;</span>
+<span class="fc" id="L151">                JSONArray jsonArray = parseAsArray(url, key);</span>
+<span class="fc" id="L152">                JSONObject prjLatestData = (JSONObject) jsonArray.get(0);</span>
+<span class="fc" id="L153">                codeQuality.setTimestamp(timestamp(prjLatestData, DATE));</span>
+<span class="fc bfc" id="L154" title="All 2 branches covered.">                for (Object eventObj : (JSONArray) prjLatestData.get(EVENTS)) {</span>
+<span class="fc" id="L155">                    JSONObject eventJson = (JSONObject) eventObj;</span>
+
+<span class="fc bfc" id="L157" title="All 2 branches covered.">                    if (strSafe(eventJson, &quot;category&quot;).equals(&quot;VERSION&quot;)) {</span>
+<span class="fc" id="L158">                        codeQuality.setVersion(str(eventJson, NAME));</span>
+                    }
+<span class="fc" id="L160">                }</span>
+
+<span class="fc bfc" id="L162" title="All 2 branches covered.">                for (Object metricObj : (JSONArray) prjData.get(MSR)) {</span>
+<span class="fc" id="L163">                    JSONObject metricJson = (JSONObject) metricObj;</span>
+
+<span class="fc" id="L165">                    CodeQualityMetric metric = new CodeQualityMetric(str(metricJson, METRIC));</span>
+<span class="fc" id="L166">                    metric.setValue(metricJson.get(VALUE));</span>
+<span class="fc bfc" id="L167" title="All 2 branches covered.">                    if (metric.getName().equals(&quot;sqale_index&quot;)) {</span>
+<span class="fc" id="L168">                        metric.setFormattedValue(format(str(metricJson, VALUE)));</span>
+<span class="fc bfc" id="L169" title="All 2 branches covered.">                    } else if (strSafe(metricJson, VALUE).indexOf(&quot;.&quot;) &gt; 0) {</span>
+<span class="fc" id="L170">                        metric.setFormattedValue(str(metricJson, VALUE) + &quot;%&quot; );</span>
+<span class="fc bfc" id="L171" title="All 2 branches covered.">                    } else if (strSafe(metricJson, VALUE).matches(&quot;\\d+&quot;)) {</span>
+<span class="fc" id="L172">                        metric.setFormattedValue(String.format(&quot;%,d&quot;, integer(metricJson, VALUE)));</span>
+                    } else {
+<span class="fc" id="L174">                        metric.setFormattedValue(str(metricJson, VALUE));</span>
+                    }
+<span class="fc" id="L176">                    codeQuality.getMetrics().add(metric);</span>
+<span class="fc" id="L177">                }</span>
+
+<span class="fc" id="L179">                return codeQuality;</span>
+            }
+
+<span class="nc" id="L182">        } catch (ParseException e) {</span>
+<span class="nc" id="L183">            LOG.error(&quot;Could not parse response from: &quot; + url, e);</span>
+<span class="nc" id="L184">        } catch (RestClientException rce) {</span>
+<span class="nc" id="L185">            LOG.error(&quot;Rest Client Exception: &quot; + url + &quot;:&quot; + rce.getMessage());</span>
+<span class="nc" id="L186">        }</span>
+
+<span class="nc" id="L188">        return null;</span>
+    }
+    
+    public List&lt;String&gt; retrieveProfileAndProjectAssociation(String instanceUrl,String qualityProfile) throws ParseException{
+<span class="nc" id="L192">    	List&lt;String&gt; projects = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L193">    	String url = instanceUrl + URL_QUALITY_PROFILE_PROJECT_DETAILS + qualityProfile;</span>
+    	try {
+<span class="nc" id="L195">    		JSONArray associatedProjects = this.parseAsArray(url, &quot;results&quot;);</span>
+<span class="nc bnc" id="L196" title="All 2 branches missed.">    		if (!CollectionUtils.isEmpty(associatedProjects)) {</span>
+<span class="nc bnc" id="L197" title="All 2 branches missed.">    			for (Object project : associatedProjects) {</span>
+<span class="nc" id="L198">    				JSONObject projectJson = (JSONObject) project;</span>
+<span class="nc" id="L199">    				String projectName = (String) projectJson.get(&quot;name&quot;);</span>
+<span class="nc" id="L200">    				projects.add(projectName);</span>
+<span class="nc" id="L201">    			}</span>
+<span class="nc" id="L202">    			return projects;</span>
+    		}
+<span class="nc" id="L204">    		return null;</span>
+<span class="nc" id="L205">    	} catch (ParseException e) {</span>
+<span class="nc" id="L206">    		LOG.error(&quot;Could not parse response from: &quot; + url, e);</span>
+<span class="nc" id="L207">    		throw e;</span>
+<span class="nc" id="L208">    	} catch (RestClientException rce) {</span>
+<span class="nc" id="L209">    		LOG.error(rce);</span>
+<span class="nc" id="L210">    		throw rce;</span>
+    	}
+    }
+    
+    public JSONArray getQualityProfiles(String instanceUrl) throws ParseException {
+<span class="nc" id="L215">    	String url = instanceUrl + URL_QUALITY_PROFILES;</span>
+    	try {
+<span class="nc" id="L217">    		JSONArray qualityProfileData = this.parseAsArray(url,&quot;profiles&quot;);</span>
+<span class="nc" id="L218">    		return qualityProfileData;</span>
+<span class="nc" id="L219">    	} catch (ParseException e) {</span>
+<span class="nc" id="L220">    		LOG.error(&quot;Could not parse response from: &quot; + url, e);</span>
+<span class="nc" id="L221">    		throw e;</span>
+<span class="nc" id="L222">    	} catch (RestClientException rce) {</span>
+<span class="nc" id="L223">    		LOG.error(rce);</span>
+<span class="nc" id="L224">    		throw rce;</span>
+    	}
+    }
+    
+    public JSONArray getQualityProfileConfigurationChanges(String instanceUrl,String qualityProfile) throws ParseException{
+<span class="nc" id="L229">    	String url = instanceUrl + URL_QUALITY_PROFILE_CHANGES + qualityProfile;</span>
+    	try {
+<span class="nc" id="L231">    		JSONArray qualityProfileConfigChanges = this.parseAsArray(url, &quot;events&quot;);</span>
+<span class="nc" id="L232">    		return qualityProfileConfigChanges;</span>
+<span class="nc" id="L233">    	} catch (ParseException e) {</span>
+<span class="nc" id="L234">    		LOG.error(&quot;Could not parse response from: &quot; + url, e);</span>
+<span class="nc" id="L235">    		throw e;</span>
+<span class="nc" id="L236">    	} catch (RestClientException rce) {</span>
+<span class="nc" id="L237">    		LOG.error(rce);</span>
+<span class="nc" id="L238">    		throw rce;</span>
+    	}
+    }
+
+    private JSONArray parseAsArray(String url, String key) throws ParseException {
+<span class="fc" id="L243">        JSONObject jsonObject = getResponse(url);</span>
+<span class="fc" id="L244">        return (JSONArray) jsonObject.get(key);</span>
+    }
+
+    private JSONObject parseJsonObject(String url, String key) throws ParseException {
+<span class="fc" id="L248">        JSONObject jsonObject = getResponse(url);</span>
+<span class="fc" id="L249">        return (JSONObject)jsonObject.get(key);</span>
+    }
+
+    private JSONObject getResponse(String url) throws ParseException {
+<span class="fc" id="L253">        ResponseEntity&lt;String&gt; response = rest.exchange(url, HttpMethod.GET, this.httpHeaders, String.class);</span>
+<span class="fc" id="L254">        JSONParser jsonParser = new JSONParser();</span>
+<span class="fc" id="L255">        JSONObject jsonObject = (JSONObject) jsonParser.parse(response.getBody());</span>
+<span class="fc" id="L256">        LOG.debug(url);</span>
+<span class="fc" id="L257">        return jsonObject;</span>
+    }
+
+    private long timestamp(JSONObject json, String key) {
+<span class="fc" id="L261">        Object obj = json.get(key);</span>
+<span class="pc bpc" id="L262" title="1 of 2 branches missed.">        if (obj != null) {</span>
+            try {
+<span class="fc" id="L264">                return new SimpleDateFormat(DATE_FORMAT).parse(obj.toString()).getTime();</span>
+<span class="nc" id="L265">            } catch (java.text.ParseException e) {</span>
+<span class="nc" id="L266">                LOG.error(obj + &quot; is not in expected format &quot; + DATE_FORMAT, e);</span>
+            }
+        }
+<span class="nc" id="L269">        return 0;</span>
+    }
+
+    private String str(JSONObject json, String key) {
+<span class="fc" id="L273">        Object obj = json.get(key);</span>
+<span class="pc bpc" id="L274" title="1 of 2 branches missed.">        return obj == null ? null : obj.toString();</span>
+    }
+
+    private String strSafe(JSONObject json, String key) {
+<span class="fc" id="L278">        Object obj = json.get(key);</span>
+<span class="pc bpc" id="L279" title="1 of 2 branches missed.">        return obj == null ? &quot;&quot; : obj.toString();</span>
+    }
+
+    @SuppressWarnings(&quot;unused&quot;)
+    private Integer integer(JSONObject json, String key) {
+<span class="fc" id="L284">        Object obj = json.get(key);</span>
+<span class="pc bpc" id="L285" title="1 of 2 branches missed.">        return obj == null ? null : Integer.valueOf(obj.toString());</span>
+    }
+
+    @SuppressWarnings(&quot;unused&quot;)
+    private BigDecimal decimal(JSONObject json, String key) {
+<span class="nc" id="L290">        Object obj = json.get(key);</span>
+<span class="nc bnc" id="L291" title="All 2 branches missed.">        return obj == null ? null : new BigDecimal(obj.toString());</span>
+    }
+
+    @SuppressWarnings(&quot;unused&quot;)
+    private Boolean bool(JSONObject json, String key) {
+<span class="nc" id="L296">        Object obj = json.get(key);</span>
+<span class="nc bnc" id="L297" title="All 2 branches missed.">        return obj == null ? null : Boolean.valueOf(obj.toString());</span>
+    }
+
+    @SuppressWarnings(&quot;unused&quot;)
+    private String format(String duration) {
+<span class="fc" id="L302">        Long durationInMinutes = Long.valueOf(duration);</span>
+<span class="pc bpc" id="L303" title="1 of 2 branches missed.">        if (durationInMinutes == 0) {</span>
+<span class="nc" id="L304">            return &quot;0&quot;;</span>
+        }
+<span class="pc bpc" id="L306" title="1 of 2 branches missed.">        boolean isNegative = durationInMinutes &lt; 0;</span>
+<span class="fc" id="L307">        Long absDuration = Math.abs(durationInMinutes);</span>
+
+<span class="fc" id="L309">        int days = ((Double) ((double) absDuration / HOURS_IN_DAY / 60)).intValue();</span>
+<span class="fc" id="L310">        Long remainingDuration = absDuration - (days * HOURS_IN_DAY * 60);</span>
+<span class="fc" id="L311">        int hours = ((Double) (remainingDuration.doubleValue() / 60)).intValue();</span>
+<span class="fc" id="L312">        remainingDuration = remainingDuration - (hours * 60);</span>
+<span class="fc" id="L313">        int minutes = remainingDuration.intValue();</span>
+
+<span class="fc" id="L315">        return format(days, hours, minutes, isNegative);</span>
+    }
+
+    @SuppressWarnings(&quot;PMD&quot;)
+    private static String format(int days, int hours, int minutes, boolean isNegative) {
+<span class="fc" id="L320">        StringBuilder message = new StringBuilder();</span>
+<span class="pc bpc" id="L321" title="1 of 2 branches missed.">        if (days &gt; 0) {</span>
+<span class="pc bpc" id="L322" title="1 of 2 branches missed.">            message.append(String.format(DAYS_FORMAT, isNegative ? (-1 * days) : days));</span>
+        }
+<span class="pc bpc" id="L324" title="1 of 2 branches missed.">        if (displayHours(days, hours)) {</span>
+<span class="nc" id="L325">            addSpaceIfNeeded(message);</span>
+<span class="nc bnc" id="L326" title="All 4 branches missed.">            message.append(String.format(HOURS_FORMAT, isNegative &amp;&amp; message.length() == 0 ? (-1 * hours) : hours));</span>
+        }
+<span class="pc bpc" id="L328" title="1 of 2 branches missed.">        if (displayMinutes(days, hours, minutes)) {</span>
+<span class="nc" id="L329">            addSpaceIfNeeded(message);</span>
+<span class="nc bnc" id="L330" title="All 4 branches missed.">            message.append(String.format(MINUTES_FORMAT, isNegative &amp;&amp; message.length() == 0 ? (-1 * minutes) : minutes));</span>
+        }
+<span class="fc" id="L332">        return message.toString();</span>
+    }
+
+    private static void addSpaceIfNeeded(StringBuilder message) {
+<span class="nc bnc" id="L336" title="All 2 branches missed.">        if (message.length() &gt; 0) {</span>
+<span class="nc" id="L337">            message.append(&quot; &quot;);</span>
+        }
+<span class="nc" id="L339">    }</span>
+
+    private static boolean displayHours(int days, int hours) {
+<span class="pc bpc" id="L342" title="2 of 4 branches missed.">        return hours &gt; 0 &amp;&amp; days &lt; 10;</span>
+    }
+
+    private static boolean displayMinutes(int days, int hours, int minutes) {
+<span class="pc bpc" id="L346" title="3 of 6 branches missed.">        return minutes &gt; 0 &amp;&amp; hours &lt; 10 &amp;&amp; days == 0;</span>
+    }
+
+    private CodeQualityMetricStatus metricStatus(String status) {
+<span class="nc bnc" id="L350" title="All 2 branches missed.">        if (StringUtils.isBlank(status)) {</span>
+<span class="nc" id="L351">            return CodeQualityMetricStatus.Ok;</span>
+        }
+
+<span class="nc bnc" id="L354" title="All 10 branches missed.">        switch(status) {</span>
+<span class="nc" id="L355">            case STATUS_WARN:  return CodeQualityMetricStatus.Warning;</span>
+<span class="nc" id="L356">            case STATUS_ALERT: return CodeQualityMetricStatus.Alert;</span>
+<span class="nc" id="L357">            default:           return CodeQualityMetricStatus.Ok;</span>
+        }
+    }
+
+    private HttpHeaders createHeaders(String username, String password){
+<span class="fc" id="L362">        HttpHeaders headers = new HttpHeaders();</span>
+<span class="pc bpc" id="L363" title="5 of 6 branches missed.">        if (username != null &amp;&amp; !username.isEmpty() &amp;&amp;</span>
+<span class="nc bnc" id="L364" title="All 2 branches missed.">                password != null &amp;&amp; !password.isEmpty()) {</span>
+<span class="nc" id="L365">            String auth = username + &quot;:&quot; + password;</span>
+<span class="nc" id="L366">            byte[] encodedAuth = Base64.encodeBase64(</span>
+<span class="nc" id="L367">                    auth.getBytes(Charset.forName(&quot;US-ASCII&quot;))</span>
+            );
+<span class="nc" id="L369">            String authHeader = &quot;Basic &quot; + new String(encodedAuth);</span>
+<span class="nc" id="L370">            headers.set(&quot;Authorization&quot;, authHeader);</span>
+        }
+<span class="fc" id="L372">        return headers;</span>
+    }
+
+    private Long getTotalCount(JSONObject pagingObject) {
+<span class="fc" id="L376">        return (Long) pagingObject.get(&quot;total&quot;);</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

@@ -1,0 +1,15 @@
+E:\Repositories\update\Hygieia\collectors\scm\github-graphql\src\main\java\com\capitalone\dashboard\model\GitHubRateLimit.java
+E:\Repositories\update\Hygieia\collectors\scm\github-graphql\src\main\java\com\capitalone\dashboard\collector\GitHubClient.java
+E:\Repositories\update\Hygieia\collectors\scm\github-graphql\src\main\java\com\capitalone\dashboard\collector\GitHubSettings.java
+E:\Repositories\update\Hygieia\collectors\scm\github-graphql\src\main\java\com\capitalone\dashboard\collector\GitHubCollectorTask.java
+E:\Repositories\update\Hygieia\collectors\scm\github-graphql\src\main\java\com\capitalone\dashboard\repository\GitHubRepoRepository.java
+E:\Repositories\update\Hygieia\collectors\scm\github-graphql\src\main\java\com\capitalone\dashboard\model\MergeEvent.java
+E:\Repositories\update\Hygieia\collectors\scm\github-graphql\src\main\java\com\capitalone\dashboard\collector\RestOperationsSupplier.java
+E:\Repositories\update\Hygieia\collectors\scm\github-graphql\src\main\java\com\capitalone\dashboard\model\CollectionMode.java
+E:\Repositories\update\Hygieia\collectors\scm\github-graphql\src\main\java\com\capitalone\dashboard\collector\DefaultGitHubClient.java
+E:\Repositories\update\Hygieia\collectors\scm\github-graphql\src\main\java\com\capitalone\dashboard\model\GitHubRepo.java
+E:\Repositories\update\Hygieia\collectors\scm\github-graphql\src\main\java\com\capitalone\dashboard\collector\CommitPullMatcher.java
+E:\Repositories\update\Hygieia\collectors\scm\github-graphql\src\main\java\com\capitalone\dashboard\model\GitHubParsed.java
+E:\Repositories\update\Hygieia\collectors\scm\github-graphql\src\main\java\com\capitalone\dashboard\model\GitHubPaging.java
+E:\Repositories\update\Hygieia\collectors\scm\github-graphql\src\main\java\com\capitalone\dashboard\Application.java
+E:\Repositories\update\Hygieia\collectors\scm\github-graphql\src\main\java\com\capitalone\dashboard\model\GitHubGraphQLQuery.java

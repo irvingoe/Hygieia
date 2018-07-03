@@ -1,0 +1,10 @@
+2018-07-03 07:14:59,201 INFO  c.c.d.c.story.StoryDataClientImpl - Loop i 0 pageSize 1
+2018-07-03 07:14:59,241 INFO  c.c.d.c.story.StoryDataClientImpl - Loop i 0 pageSize 2
+2018-07-03 07:14:59,243 INFO  c.c.d.c.story.StoryDataClientImpl - Loop i 2 pageSize 1
+2018-07-03 07:14:59,261 INFO  c.c.d.c.story.StoryDataClientImpl - Loop i 0 pageSize 1
+2018-07-03 07:14:59,290 INFO  ClientUtilTest - Beginning tests for com.capitalone.dashboard.collector.ClientUtilTest
+2018-07-03 11:42:15,362 INFO  c.c.d.c.story.StoryDataClientImpl - Loop i 0 pageSize 1
+2018-07-03 11:42:15,399 INFO  c.c.d.c.story.StoryDataClientImpl - Loop i 0 pageSize 2
+2018-07-03 11:42:15,402 INFO  c.c.d.c.story.StoryDataClientImpl - Loop i 2 pageSize 1
+2018-07-03 11:42:15,419 INFO  c.c.d.c.story.StoryDataClientImpl - Loop i 0 pageSize 1
+2018-07-03 11:42:15,452 INFO  ClientUtilTest - Beginning tests for com.capitalone.dashboard.collector.ClientUtilTest

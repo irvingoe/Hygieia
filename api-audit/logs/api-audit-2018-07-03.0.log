@@ -1,0 +1,1262 @@
+2018-07-03 07:13:23,016 INFO  o.s.t.c.s.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener]
+2018-07-03 07:13:23,040 INFO  o.s.t.c.s.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@16e7dcfd, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@3d121db3, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@3b07a0d6, org.springframework.test.context.support.DirtiesContextTestExecutionListener@11a9e7c8, org.springframework.test.context.transaction.TransactionalTestExecutionListener@3901d134, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@14d3bc22, org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener@12d4bf7e]
+2018-07-03 07:13:23,979 INFO  o.s.t.c.s.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener]
+2018-07-03 07:13:23,979 INFO  o.s.t.c.s.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@25ce9dc4, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@74ea2410, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@17f62e33, org.springframework.test.context.support.DirtiesContextTestExecutionListener@76b1e9b8, org.springframework.test.context.transaction.TransactionalTestExecutionListener@27406a17, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@2af004b, org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener@248e319b]
+2018-07-03 07:13:24,202 INFO  o.s.c.s.GenericApplicationContext - Refreshing org.springframework.context.support.GenericApplicationContext@47c81abf: startup date [Tue Jul 03 07:13:24 EDT 2018]; root of context hierarchy
+2018-07-03 07:13:25,130 INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2018-07-03 07:13:27,937 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.dashboards updates:[com.mongodb.bulk.UpdateRequest@3811510]
+2018-07-03 07:13:27,965 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:27,974 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.components updates:[com.mongodb.bulk.UpdateRequest@2b7e8044]
+2018-07-03 07:13:27,977 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:27,990 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@3a1706e1]
+2018-07-03 07:13:27,992 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:27,993 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@3c6c4689]
+2018-07-03 07:13:27,994 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:27,995 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@63cf9de0]
+2018-07-03 07:13:27,997 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:27,997 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@594d9f07]
+2018-07-03 07:13:27,999 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,000 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@5befbac1]
+2018-07-03 07:13:28,001 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,002 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@5e9f73b]
+2018-07-03 07:13:28,004 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,005 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@1a565afb]
+2018-07-03 07:13:28,005 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,006 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@2fd64b11]
+2018-07-03 07:13:28,007 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,008 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@949c598]
+2018-07-03 07:13:28,009 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,010 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@43d3aba5]
+2018-07-03 07:13:28,011 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,011 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@6bfaa0a6]
+2018-07-03 07:13:28,013 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,014 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@76e9f00b]
+2018-07-03 07:13:28,015 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,015 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@314b9e4b]
+2018-07-03 07:13:28,016 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,017 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@6f1b8544]
+2018-07-03 07:13:28,019 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,020 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@51dae791]
+2018-07-03 07:13:28,021 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,022 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@688a2c09]
+2018-07-03 07:13:28,023 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,024 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@5de5e95]
+2018-07-03 07:13:28,025 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,026 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@365cdacf]
+2018-07-03 07:13:28,027 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,028 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@303c55fa]
+2018-07-03 07:13:28,029 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,049 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@b5de58f]
+2018-07-03 07:13:28,051 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,052 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@6587305a]
+2018-07-03 07:13:28,054 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,055 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@abbe000]
+2018-07-03 07:13:28,056 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,057 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@3f81621c]
+2018-07-03 07:13:28,058 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,059 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@5b9499fe]
+2018-07-03 07:13:28,060 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,062 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@74d6736]
+2018-07-03 07:13:28,063 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,064 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@52a33c3f]
+2018-07-03 07:13:28,065 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,066 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@668625f5]
+2018-07-03 07:13:28,067 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,068 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@19a20bb2]
+2018-07-03 07:13:28,069 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,070 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@75babb67]
+2018-07-03 07:13:28,071 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,073 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@3eb3232b]
+2018-07-03 07:13:28,074 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,075 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@69cd1085]
+2018-07-03 07:13:28,076 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,076 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@60bb7995]
+2018-07-03 07:13:28,078 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,079 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@40fa8766]
+2018-07-03 07:13:28,080 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,081 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@67774e29]
+2018-07-03 07:13:28,082 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,082 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@663f237a]
+2018-07-03 07:13:28,083 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,084 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@5d7399f9]
+2018-07-03 07:13:28,086 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,087 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@49a6f486]
+2018-07-03 07:13:28,088 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,088 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@14fded9d]
+2018-07-03 07:13:28,090 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,091 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@bc6288b]
+2018-07-03 07:13:28,092 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,093 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@4a3bd45b]
+2018-07-03 07:13:28,094 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,095 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@34c70b5e]
+2018-07-03 07:13:28,096 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,097 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@4f2d995e]
+2018-07-03 07:13:28,098 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,099 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@75156240]
+2018-07-03 07:13:28,101 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,102 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@6198e9b5]
+2018-07-03 07:13:28,103 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,104 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@6d099323]
+2018-07-03 07:13:28,105 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,106 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@4ecd00b5]
+2018-07-03 07:13:28,107 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,108 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@10947c4e]
+2018-07-03 07:13:28,110 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,110 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@3667faa8]
+2018-07-03 07:13:28,112 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,113 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@1756f7cc]
+2018-07-03 07:13:28,114 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,114 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@3138953b]
+2018-07-03 07:13:28,116 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,116 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@27df95e]
+2018-07-03 07:13:28,118 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,118 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@b46e103]
+2018-07-03 07:13:28,119 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,121 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@2b0e9f30]
+2018-07-03 07:13:28,122 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,123 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@5eea5627]
+2018-07-03 07:13:28,124 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,125 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@3330f3ad]
+2018-07-03 07:13:28,127 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,128 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@f425231]
+2018-07-03 07:13:28,129 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,129 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@506aabf6]
+2018-07-03 07:13:28,131 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,132 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@5cbd94b2]
+2018-07-03 07:13:28,134 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,136 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@6824b913]
+2018-07-03 07:13:28,138 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,140 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@756aadfc]
+2018-07-03 07:13:28,142 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,143 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@705a8dbc]
+2018-07-03 07:13:28,144 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,145 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@40729f01]
+2018-07-03 07:13:28,147 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,148 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@d535a3d]
+2018-07-03 07:13:28,149 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,150 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@2d760326]
+2018-07-03 07:13:28,152 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,152 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@9e54c59]
+2018-07-03 07:13:28,153 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,154 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@5dbb50f3]
+2018-07-03 07:13:28,156 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,156 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@4a2e7bcb]
+2018-07-03 07:13:28,159 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,159 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@575c3e9b]
+2018-07-03 07:13:28,160 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,161 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@74f827ad]
+2018-07-03 07:13:28,162 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,163 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@73c3cd09]
+2018-07-03 07:13:28,164 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,165 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@4a8a0099]
+2018-07-03 07:13:28,166 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,166 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@7c1447b5]
+2018-07-03 07:13:28,168 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,168 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@49e4c2d5]
+2018-07-03 07:13:28,169 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,170 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@24a2e565]
+2018-07-03 07:13:28,172 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,173 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@3e36b7a0]
+2018-07-03 07:13:28,174 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,175 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@60c1663c]
+2018-07-03 07:13:28,176 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,177 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@f5cf29b]
+2018-07-03 07:13:28,178 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,179 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@3c66b7d8]
+2018-07-03 07:13:28,179 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,180 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@37e69c43]
+2018-07-03 07:13:28,181 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,182 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@5c7dfc05]
+2018-07-03 07:13:28,183 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,183 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@345d053b]
+2018-07-03 07:13:28,184 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,185 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@3d0cac1f]
+2018-07-03 07:13:28,187 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,187 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@3e8b3b79]
+2018-07-03 07:13:28,188 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,197 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collectors updates:[com.mongodb.bulk.UpdateRequest@518ddd3b]
+2018-07-03 07:13:28,199 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,199 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collectors updates:[com.mongodb.bulk.UpdateRequest@939ff41]
+2018-07-03 07:13:28,200 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,201 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collectors updates:[com.mongodb.bulk.UpdateRequest@6e0e5dec]
+2018-07-03 07:13:28,202 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,214 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.gitrequests updates:[com.mongodb.bulk.UpdateRequest@48a663e9]
+2018-07-03 07:13:28,215 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,217 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.gitrequests updates:[com.mongodb.bulk.UpdateRequest@777d0bc3]
+2018-07-03 07:13:28,220 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,221 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.gitrequests updates:[com.mongodb.bulk.UpdateRequest@3178219a]
+2018-07-03 07:13:28,223 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,224 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.gitrequests updates:[com.mongodb.bulk.UpdateRequest@2d85fb64]
+2018-07-03 07:13:28,226 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,228 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.gitrequests updates:[com.mongodb.bulk.UpdateRequest@56476c16]
+2018-07-03 07:13:28,230 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,232 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.gitrequests updates:[com.mongodb.bulk.UpdateRequest@497b560e]
+2018-07-03 07:13:28,233 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,234 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.gitrequests updates:[com.mongodb.bulk.UpdateRequest@39ffda4a]
+2018-07-03 07:13:28,236 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,236 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.gitrequests updates:[com.mongodb.bulk.UpdateRequest@3ba348ca]
+2018-07-03 07:13:28,238 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,239 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.gitrequests updates:[com.mongodb.bulk.UpdateRequest@56e9a474]
+2018-07-03 07:13:28,243 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,244 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.gitrequests updates:[com.mongodb.bulk.UpdateRequest@45b15381]
+2018-07-03 07:13:28,246 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,247 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.gitrequests updates:[com.mongodb.bulk.UpdateRequest@2dbfcf7]
+2018-07-03 07:13:28,249 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,250 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.gitrequests updates:[com.mongodb.bulk.UpdateRequest@239f017e]
+2018-07-03 07:13:28,252 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,253 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.gitrequests updates:[com.mongodb.bulk.UpdateRequest@38cedb7d]
+2018-07-03 07:13:28,258 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,259 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.gitrequests updates:[com.mongodb.bulk.UpdateRequest@772caabe]
+2018-07-03 07:13:28,261 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,263 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.gitrequests updates:[com.mongodb.bulk.UpdateRequest@2acdcce8]
+2018-07-03 07:13:28,265 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,289 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.library_policy updates:[com.mongodb.bulk.UpdateRequest@1a1cc163]
+2018-07-03 07:13:28,293 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,674 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.dashboards updates:[com.mongodb.bulk.UpdateRequest@5529ff44]
+2018-07-03 07:13:28,676 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,679 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.components updates:[com.mongodb.bulk.UpdateRequest@14447be]
+2018-07-03 07:13:28,681 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,684 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@5eb5da12]
+2018-07-03 07:13:28,686 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,686 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@4a50d04a]
+2018-07-03 07:13:28,687 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,688 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@5099c59b]
+2018-07-03 07:13:28,688 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,689 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@73c31181]
+2018-07-03 07:13:28,690 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,690 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@3d620a1]
+2018-07-03 07:13:28,691 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,691 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@4f486211]
+2018-07-03 07:13:28,692 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,692 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@51e3d37e]
+2018-07-03 07:13:28,693 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,693 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@3a479fda]
+2018-07-03 07:13:28,694 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,694 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@8a6631b]
+2018-07-03 07:13:28,695 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,696 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@472d0f4]
+2018-07-03 07:13:28,697 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,697 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@4bc59b27]
+2018-07-03 07:13:28,698 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,699 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@4d7a64ca]
+2018-07-03 07:13:28,699 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,700 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@76ff68c5]
+2018-07-03 07:13:28,700 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,701 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@6418e39e]
+2018-07-03 07:13:28,702 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,703 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@3635099]
+2018-07-03 07:13:28,703 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,704 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@1da1380b]
+2018-07-03 07:13:28,704 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,705 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@1095d23a]
+2018-07-03 07:13:28,706 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,706 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@3332c7a5]
+2018-07-03 07:13:28,707 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,708 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@2accaec2]
+2018-07-03 07:13:28,709 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,716 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@3e39baf0]
+2018-07-03 07:13:28,717 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,717 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@83bb0f]
+2018-07-03 07:13:28,718 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,719 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@25a94b55]
+2018-07-03 07:13:28,720 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,721 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@6adc5b9c]
+2018-07-03 07:13:28,722 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,722 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@19c1820d]
+2018-07-03 07:13:28,723 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,723 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@40709f9]
+2018-07-03 07:13:28,724 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,724 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@6b1b19cf]
+2018-07-03 07:13:28,725 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,725 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@6393bf8b]
+2018-07-03 07:13:28,726 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,726 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@76d7881e]
+2018-07-03 07:13:28,727 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,727 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@4aa31ffc]
+2018-07-03 07:13:28,728 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,728 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@7945b206]
+2018-07-03 07:13:28,729 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,729 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@7d42542]
+2018-07-03 07:13:28,730 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,730 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@4d09cade]
+2018-07-03 07:13:28,731 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,731 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@1f87607c]
+2018-07-03 07:13:28,732 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,733 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@4b862408]
+2018-07-03 07:13:28,734 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,734 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@6ddee60f]
+2018-07-03 07:13:28,735 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,735 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@6e829e50]
+2018-07-03 07:13:28,736 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,737 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@4aa2877c]
+2018-07-03 07:13:28,737 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,738 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@307e4c44]
+2018-07-03 07:13:28,738 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,739 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@2a8a3ada]
+2018-07-03 07:13:28,739 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,740 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@500051c5]
+2018-07-03 07:13:28,741 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,741 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@ec7b5de]
+2018-07-03 07:13:28,742 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,742 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@4c19d42e]
+2018-07-03 07:13:28,742 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,743 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@373e6b9d]
+2018-07-03 07:13:28,744 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,744 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@65629ac6]
+2018-07-03 07:13:28,745 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,745 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@56b8aaf1]
+2018-07-03 07:13:28,746 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,746 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@5482bcac]
+2018-07-03 07:13:28,747 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,747 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@10244722]
+2018-07-03 07:13:28,748 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,748 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@61615b4a]
+2018-07-03 07:13:28,749 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,750 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@721d8ab5]
+2018-07-03 07:13:28,750 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,751 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@33bb3f86]
+2018-07-03 07:13:28,752 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,752 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@1946384]
+2018-07-03 07:13:28,753 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,753 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@6ac4c3f7]
+2018-07-03 07:13:28,754 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,755 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@7412a438]
+2018-07-03 07:13:28,755 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,756 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@1e3ff233]
+2018-07-03 07:13:28,756 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,757 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@3c952a33]
+2018-07-03 07:13:28,757 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,758 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@70029d2d]
+2018-07-03 07:13:28,759 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,759 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@1150d471]
+2018-07-03 07:13:28,760 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,760 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@709f0202]
+2018-07-03 07:13:28,761 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,761 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@654e6a90]
+2018-07-03 07:13:28,762 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,762 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@14168e1]
+2018-07-03 07:13:28,763 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,763 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@16a5c7e4]
+2018-07-03 07:13:28,764 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,765 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@1e225820]
+2018-07-03 07:13:28,765 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,766 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@8aeab9e]
+2018-07-03 07:13:28,766 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,767 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@2a2dc0a]
+2018-07-03 07:13:28,767 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,767 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@3a00b15d]
+2018-07-03 07:13:28,768 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,769 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@36ef1d65]
+2018-07-03 07:13:28,770 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,770 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@4be0a27d]
+2018-07-03 07:13:28,771 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,771 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@5f366587]
+2018-07-03 07:13:28,771 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,772 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@6003ad65]
+2018-07-03 07:13:28,773 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,773 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@2ec99035]
+2018-07-03 07:13:28,774 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,774 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@60743cdb]
+2018-07-03 07:13:28,775 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,776 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@c02670f]
+2018-07-03 07:13:28,776 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,777 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@71179b6f]
+2018-07-03 07:13:28,778 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,778 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@13bdf540]
+2018-07-03 07:13:28,779 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,779 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@526e8108]
+2018-07-03 07:13:28,780 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,780 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@4dcbae55]
+2018-07-03 07:13:28,781 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,781 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@4a9860]
+2018-07-03 07:13:28,781 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,782 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@7ca16adc]
+2018-07-03 07:13:28,783 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,783 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@5ae1c281]
+2018-07-03 07:13:28,784 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,784 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@4ac8768e]
+2018-07-03 07:13:28,785 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,786 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@1e957e2f]
+2018-07-03 07:13:28,787 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,787 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@691500ab]
+2018-07-03 07:13:28,788 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,788 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@3db432c2]
+2018-07-03 07:13:28,789 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,792 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collectors updates:[com.mongodb.bulk.UpdateRequest@34414ffc]
+2018-07-03 07:13:28,793 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,793 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collectors updates:[com.mongodb.bulk.UpdateRequest@1903b5d]
+2018-07-03 07:13:28,794 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,794 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collectors updates:[com.mongodb.bulk.UpdateRequest@4041739c]
+2018-07-03 07:13:28,795 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,800 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.gitrequests updates:[com.mongodb.bulk.UpdateRequest@627ff1b8]
+2018-07-03 07:13:28,802 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,804 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.gitrequests updates:[com.mongodb.bulk.UpdateRequest@62b57479]
+2018-07-03 07:13:28,805 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,805 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.gitrequests updates:[com.mongodb.bulk.UpdateRequest@29a33620]
+2018-07-03 07:13:28,807 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,808 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.gitrequests updates:[com.mongodb.bulk.UpdateRequest@ea04cab]
+2018-07-03 07:13:28,810 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,811 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.gitrequests updates:[com.mongodb.bulk.UpdateRequest@134f8ef6]
+2018-07-03 07:13:28,812 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,813 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.gitrequests updates:[com.mongodb.bulk.UpdateRequest@5a90265a]
+2018-07-03 07:13:28,813 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,814 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.gitrequests updates:[com.mongodb.bulk.UpdateRequest@6a32191e]
+2018-07-03 07:13:28,815 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,815 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.gitrequests updates:[com.mongodb.bulk.UpdateRequest@66fbc5e7]
+2018-07-03 07:13:28,817 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,817 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.gitrequests updates:[com.mongodb.bulk.UpdateRequest@9accff0]
+2018-07-03 07:13:28,818 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,819 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.gitrequests updates:[com.mongodb.bulk.UpdateRequest@52559a69]
+2018-07-03 07:13:28,820 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,820 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.gitrequests updates:[com.mongodb.bulk.UpdateRequest@285583d4]
+2018-07-03 07:13:28,821 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,822 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.gitrequests updates:[com.mongodb.bulk.UpdateRequest@1039bfc4]
+2018-07-03 07:13:28,823 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,823 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.gitrequests updates:[com.mongodb.bulk.UpdateRequest@7f85217c]
+2018-07-03 07:13:28,824 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,825 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.gitrequests updates:[com.mongodb.bulk.UpdateRequest@1fd7a37]
+2018-07-03 07:13:28,826 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,826 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.gitrequests updates:[com.mongodb.bulk.UpdateRequest@5b202ff]
+2018-07-03 07:13:28,827 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,832 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.library_policy updates:[com.mongodb.bulk.UpdateRequest@72543547]
+2018-07-03 07:13:28,834 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,866 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.dashboards updates:[com.mongodb.bulk.UpdateRequest@26865482]
+2018-07-03 07:13:28,867 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,871 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.components updates:[com.mongodb.bulk.UpdateRequest@34451ed8]
+2018-07-03 07:13:28,872 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,875 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@c1050f2]
+2018-07-03 07:13:28,876 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,876 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@67bb4dcd]
+2018-07-03 07:13:28,877 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,877 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@738d37fc]
+2018-07-03 07:13:28,878 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,878 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@6fa2448b]
+2018-07-03 07:13:28,879 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,879 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@61bb1e4d]
+2018-07-03 07:13:28,880 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,880 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@5c53f292]
+2018-07-03 07:13:28,881 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,881 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@46fb0c33]
+2018-07-03 07:13:28,881 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,882 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@3b009e7b]
+2018-07-03 07:13:28,883 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,883 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@270a620]
+2018-07-03 07:13:28,884 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,884 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@41f4039e]
+2018-07-03 07:13:28,884 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,884 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@5ff00507]
+2018-07-03 07:13:28,884 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,885 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@603cabc4]
+2018-07-03 07:13:28,885 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,886 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@67fa5045]
+2018-07-03 07:13:28,886 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,886 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@6f347d7]
+2018-07-03 07:13:28,887 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,888 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@5974b233]
+2018-07-03 07:13:28,888 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,889 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@5c134052]
+2018-07-03 07:13:28,889 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,890 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@69de5bed]
+2018-07-03 07:13:28,890 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,891 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@750f64fe]
+2018-07-03 07:13:28,891 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,892 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@996a546]
+2018-07-03 07:13:28,893 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,902 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@4fc165f6]
+2018-07-03 07:13:28,904 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,905 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@545b5ed0]
+2018-07-03 07:13:28,906 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,907 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@5a7df831]
+2018-07-03 07:13:28,907 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,908 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@667dcaad]
+2018-07-03 07:13:28,909 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,909 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@22d7fd41]
+2018-07-03 07:13:28,910 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,910 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@2c748a15]
+2018-07-03 07:13:28,911 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,911 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@19fd43da]
+2018-07-03 07:13:28,911 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,912 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@115dcaea]
+2018-07-03 07:13:28,912 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,913 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@cfd1075]
+2018-07-03 07:13:28,913 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,913 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@45117dd]
+2018-07-03 07:13:28,914 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,915 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@7741771e]
+2018-07-03 07:13:28,915 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,916 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@834e986]
+2018-07-03 07:13:28,916 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,917 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@6cae2e4d]
+2018-07-03 07:13:28,918 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,918 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@604d23fa]
+2018-07-03 07:13:28,919 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,920 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@1cc8416a]
+2018-07-03 07:13:28,920 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,922 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@331ff3ac]
+2018-07-03 07:13:28,924 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,925 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@2e5e6fc4]
+2018-07-03 07:13:28,926 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,927 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@2785db06]
+2018-07-03 07:13:28,927 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,928 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@79980d8d]
+2018-07-03 07:13:28,928 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,928 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@35d60381]
+2018-07-03 07:13:28,929 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,929 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@68ab6ab0]
+2018-07-03 07:13:28,930 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,930 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@61ffd148]
+2018-07-03 07:13:28,931 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,931 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@58324c9f]
+2018-07-03 07:13:28,932 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,932 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@5d7d8613]
+2018-07-03 07:13:28,933 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,934 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@6eb089e6]
+2018-07-03 07:13:28,934 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,935 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@715a70e9]
+2018-07-03 07:13:28,935 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,936 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@3bc69ce9]
+2018-07-03 07:13:28,937 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,937 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@abad89c]
+2018-07-03 07:13:28,938 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,938 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@602f8f94]
+2018-07-03 07:13:28,939 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,939 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@42507640]
+2018-07-03 07:13:28,939 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,940 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@4dfe8b37]
+2018-07-03 07:13:28,940 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,940 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@11dcd42c]
+2018-07-03 07:13:28,941 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,942 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@d13baac]
+2018-07-03 07:13:28,942 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,943 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@4c302f38]
+2018-07-03 07:13:28,943 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,943 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@75aea2ba]
+2018-07-03 07:13:28,944 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,945 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@2a47597]
+2018-07-03 07:13:28,945 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,945 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@12f279b5]
+2018-07-03 07:13:28,946 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,946 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@5ff6dd3c]
+2018-07-03 07:13:28,947 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,947 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@5fcd1f0a]
+2018-07-03 07:13:28,948 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,948 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@7e64c1a9]
+2018-07-03 07:13:28,949 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,949 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@7fda2001]
+2018-07-03 07:13:28,949 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,949 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@162c1dfb]
+2018-07-03 07:13:28,950 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,950 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@21ae657b]
+2018-07-03 07:13:28,950 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,951 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@799f916e]
+2018-07-03 07:13:28,951 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,951 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@576b7c74]
+2018-07-03 07:13:28,952 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,952 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@21de60a7]
+2018-07-03 07:13:28,953 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,954 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@73894c5a]
+2018-07-03 07:13:28,954 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,954 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@7698b7a4]
+2018-07-03 07:13:28,955 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,955 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@7a9ceddf]
+2018-07-03 07:13:28,955 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,956 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@28157173]
+2018-07-03 07:13:28,956 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,957 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@11c713b7]
+2018-07-03 07:13:28,957 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,958 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@2251b3bc]
+2018-07-03 07:13:28,958 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,958 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@3fbe503c]
+2018-07-03 07:13:28,959 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,959 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@3c232051]
+2018-07-03 07:13:28,960 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,960 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@15d0d6c9]
+2018-07-03 07:13:28,960 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,961 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@3ab35b9c]
+2018-07-03 07:13:28,961 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,962 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@7741d346]
+2018-07-03 07:13:28,962 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,962 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@52454457]
+2018-07-03 07:13:28,963 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,963 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@4130a648]
+2018-07-03 07:13:28,964 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,964 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@61ff6a49]
+2018-07-03 07:13:28,965 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,965 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@18dd5ed3]
+2018-07-03 07:13:28,965 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,966 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@6042d663]
+2018-07-03 07:13:28,966 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,966 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@24043ec5]
+2018-07-03 07:13:28,967 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,967 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@3e33b52e]
+2018-07-03 07:13:28,968 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,970 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collectors updates:[com.mongodb.bulk.UpdateRequest@4c6a4ffd]
+2018-07-03 07:13:28,970 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,970 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collectors updates:[com.mongodb.bulk.UpdateRequest@3aed69dd]
+2018-07-03 07:13:28,971 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,972 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collectors updates:[com.mongodb.bulk.UpdateRequest@3f1a9a53]
+2018-07-03 07:13:28,972 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,978 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.gitrequests updates:[com.mongodb.bulk.UpdateRequest@535a518c]
+2018-07-03 07:13:28,979 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,979 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.gitrequests updates:[com.mongodb.bulk.UpdateRequest@38f981b6]
+2018-07-03 07:13:28,980 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,980 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.gitrequests updates:[com.mongodb.bulk.UpdateRequest@3a4aadf8]
+2018-07-03 07:13:28,981 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,981 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.gitrequests updates:[com.mongodb.bulk.UpdateRequest@7bbfc5ff]
+2018-07-03 07:13:28,982 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,982 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.gitrequests updates:[com.mongodb.bulk.UpdateRequest@7a682d35]
+2018-07-03 07:13:28,983 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,983 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.gitrequests updates:[com.mongodb.bulk.UpdateRequest@ee8e7ff]
+2018-07-03 07:13:28,984 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,984 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.gitrequests updates:[com.mongodb.bulk.UpdateRequest@61a2aeb7]
+2018-07-03 07:13:28,985 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,986 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.gitrequests updates:[com.mongodb.bulk.UpdateRequest@64b70f41]
+2018-07-03 07:13:28,987 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,987 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.gitrequests updates:[com.mongodb.bulk.UpdateRequest@5f8d9767]
+2018-07-03 07:13:28,988 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,988 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.gitrequests updates:[com.mongodb.bulk.UpdateRequest@16134476]
+2018-07-03 07:13:28,989 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,989 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.gitrequests updates:[com.mongodb.bulk.UpdateRequest@62b09715]
+2018-07-03 07:13:28,990 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,991 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.gitrequests updates:[com.mongodb.bulk.UpdateRequest@3e214105]
+2018-07-03 07:13:28,991 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,992 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.gitrequests updates:[com.mongodb.bulk.UpdateRequest@da4cf09]
+2018-07-03 07:13:28,992 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,993 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.gitrequests updates:[com.mongodb.bulk.UpdateRequest@1980a3f]
+2018-07-03 07:13:28,994 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,994 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.gitrequests updates:[com.mongodb.bulk.UpdateRequest@67f63d26]
+2018-07-03 07:13:28,995 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:28,999 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.library_policy updates:[com.mongodb.bulk.UpdateRequest@60cb1ed6]
+2018-07-03 07:13:29,001 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 07:13:29,500 INFO  o.s.c.s.GenericApplicationContext - Closing org.springframework.context.support.GenericApplicationContext@47c81abf: startup date [Tue Jul 03 07:13:24 EDT 2018]; root of context hierarchy
+2018-07-03 11:40:48,681 INFO  o.s.t.c.s.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener]
+2018-07-03 11:40:48,708 INFO  o.s.t.c.s.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@3b07a0d6, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@11a9e7c8, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@3901d134, org.springframework.test.context.support.DirtiesContextTestExecutionListener@14d3bc22, org.springframework.test.context.transaction.TransactionalTestExecutionListener@12d4bf7e, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@4c1d9d4b, org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener@7b227d8d]
+2018-07-03 11:40:49,664 INFO  o.s.t.c.s.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener]
+2018-07-03 11:40:49,665 INFO  o.s.t.c.s.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@17f62e33, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@76b1e9b8, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@27406a17, org.springframework.test.context.support.DirtiesContextTestExecutionListener@2af004b, org.springframework.test.context.transaction.TransactionalTestExecutionListener@248e319b, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@5d0bf09b, org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener@793f29ff]
+2018-07-03 11:40:49,882 INFO  o.s.c.s.GenericApplicationContext - Refreshing org.springframework.context.support.GenericApplicationContext@21d03963: startup date [Tue Jul 03 11:40:49 EDT 2018]; root of context hierarchy
+2018-07-03 11:40:50,742 INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2018-07-03 11:40:53,159 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.dashboards updates:[com.mongodb.bulk.UpdateRequest@18539cb1]
+2018-07-03 11:40:53,180 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,186 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.components updates:[com.mongodb.bulk.UpdateRequest@3a1706e1]
+2018-07-03 11:40:53,189 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,200 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@63cf9de0]
+2018-07-03 11:40:53,201 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,202 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@594d9f07]
+2018-07-03 11:40:53,203 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,204 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@5befbac1]
+2018-07-03 11:40:53,205 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,206 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@5e9f73b]
+2018-07-03 11:40:53,208 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,210 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@1a565afb]
+2018-07-03 11:40:53,211 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,212 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@2fd64b11]
+2018-07-03 11:40:53,214 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,215 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@949c598]
+2018-07-03 11:40:53,216 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,218 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@43d3aba5]
+2018-07-03 11:40:53,219 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,220 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@6bfaa0a6]
+2018-07-03 11:40:53,221 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,221 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@76e9f00b]
+2018-07-03 11:40:53,222 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,223 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@314b9e4b]
+2018-07-03 11:40:53,224 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,225 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@6f1b8544]
+2018-07-03 11:40:53,226 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,226 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@51dae791]
+2018-07-03 11:40:53,227 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,228 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@688a2c09]
+2018-07-03 11:40:53,229 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,230 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@5de5e95]
+2018-07-03 11:40:53,231 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,232 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@365cdacf]
+2018-07-03 11:40:53,233 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,233 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@303c55fa]
+2018-07-03 11:40:53,234 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,235 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@9efcd90]
+2018-07-03 11:40:53,236 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,237 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@7eb200ce]
+2018-07-03 11:40:53,239 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,257 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@abbe000]
+2018-07-03 11:40:53,259 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,260 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@3f81621c]
+2018-07-03 11:40:53,263 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,267 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@5b9499fe]
+2018-07-03 11:40:53,271 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,273 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@74d6736]
+2018-07-03 11:40:53,275 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,276 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@52a33c3f]
+2018-07-03 11:40:53,277 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,277 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@668625f5]
+2018-07-03 11:40:53,279 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,280 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@19a20bb2]
+2018-07-03 11:40:53,281 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,281 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@75babb67]
+2018-07-03 11:40:53,282 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,283 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@3eb3232b]
+2018-07-03 11:40:53,284 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,284 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@69cd1085]
+2018-07-03 11:40:53,285 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,286 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@60bb7995]
+2018-07-03 11:40:53,287 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,287 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@40fa8766]
+2018-07-03 11:40:53,288 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,290 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@67774e29]
+2018-07-03 11:40:53,291 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,291 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@663f237a]
+2018-07-03 11:40:53,293 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,293 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@5d7399f9]
+2018-07-03 11:40:53,294 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,295 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@49a6f486]
+2018-07-03 11:40:53,295 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,296 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@14fded9d]
+2018-07-03 11:40:53,298 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,300 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@bc6288b]
+2018-07-03 11:40:53,301 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,302 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@4a3bd45b]
+2018-07-03 11:40:53,303 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,304 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@34c70b5e]
+2018-07-03 11:40:53,305 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,305 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@4f2d995e]
+2018-07-03 11:40:53,306 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,306 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@75156240]
+2018-07-03 11:40:53,307 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,308 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@6198e9b5]
+2018-07-03 11:40:53,309 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,309 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@6d099323]
+2018-07-03 11:40:53,310 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,311 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@4ecd00b5]
+2018-07-03 11:40:53,312 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,312 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@10947c4e]
+2018-07-03 11:40:53,313 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,314 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@3667faa8]
+2018-07-03 11:40:53,315 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,316 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@1756f7cc]
+2018-07-03 11:40:53,317 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,317 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@3138953b]
+2018-07-03 11:40:53,318 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,319 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@27df95e]
+2018-07-03 11:40:53,320 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,320 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@b46e103]
+2018-07-03 11:40:53,321 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,321 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@2b0e9f30]
+2018-07-03 11:40:53,322 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,323 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@5eea5627]
+2018-07-03 11:40:53,324 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,324 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@3330f3ad]
+2018-07-03 11:40:53,325 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,325 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@f425231]
+2018-07-03 11:40:53,326 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,327 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@506aabf6]
+2018-07-03 11:40:53,327 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,328 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@5cbd94b2]
+2018-07-03 11:40:53,329 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,330 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@6824b913]
+2018-07-03 11:40:53,330 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,331 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@756aadfc]
+2018-07-03 11:40:53,332 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,332 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@705a8dbc]
+2018-07-03 11:40:53,333 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,334 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@40729f01]
+2018-07-03 11:40:53,335 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,335 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@d535a3d]
+2018-07-03 11:40:53,336 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,337 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@2d760326]
+2018-07-03 11:40:53,338 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,338 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@9e54c59]
+2018-07-03 11:40:53,339 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,340 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@5dbb50f3]
+2018-07-03 11:40:53,346 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,347 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@4a2e7bcb]
+2018-07-03 11:40:53,349 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,350 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@575c3e9b]
+2018-07-03 11:40:53,351 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,352 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@74f827ad]
+2018-07-03 11:40:53,355 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,357 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@73c3cd09]
+2018-07-03 11:40:53,359 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,359 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@4a8a0099]
+2018-07-03 11:40:53,360 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,361 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@7c1447b5]
+2018-07-03 11:40:53,362 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,362 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@49e4c2d5]
+2018-07-03 11:40:53,363 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,364 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@24a2e565]
+2018-07-03 11:40:53,365 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,366 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@3e36b7a0]
+2018-07-03 11:40:53,367 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,369 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@60c1663c]
+2018-07-03 11:40:53,369 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,370 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@f5cf29b]
+2018-07-03 11:40:53,371 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,371 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@3c66b7d8]
+2018-07-03 11:40:53,372 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,373 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@37e69c43]
+2018-07-03 11:40:53,373 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,374 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@5c7dfc05]
+2018-07-03 11:40:53,375 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,375 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@345d053b]
+2018-07-03 11:40:53,376 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,377 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@3d0cac1f]
+2018-07-03 11:40:53,378 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,379 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@3e8b3b79]
+2018-07-03 11:40:53,380 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,380 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@d257579]
+2018-07-03 11:40:53,381 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,382 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@518ddd3b]
+2018-07-03 11:40:53,383 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,390 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collectors updates:[com.mongodb.bulk.UpdateRequest@6e0e5dec]
+2018-07-03 11:40:53,391 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,392 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collectors updates:[com.mongodb.bulk.UpdateRequest@48a663e9]
+2018-07-03 11:40:53,393 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,393 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collectors updates:[com.mongodb.bulk.UpdateRequest@777d0bc3]
+2018-07-03 11:40:53,394 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,403 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.gitrequests updates:[com.mongodb.bulk.UpdateRequest@3178219a]
+2018-07-03 11:40:53,405 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,406 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.gitrequests updates:[com.mongodb.bulk.UpdateRequest@2d85fb64]
+2018-07-03 11:40:53,407 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,408 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.gitrequests updates:[com.mongodb.bulk.UpdateRequest@56476c16]
+2018-07-03 11:40:53,409 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,410 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.gitrequests updates:[com.mongodb.bulk.UpdateRequest@497b560e]
+2018-07-03 11:40:53,412 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,413 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.gitrequests updates:[com.mongodb.bulk.UpdateRequest@39ffda4a]
+2018-07-03 11:40:53,414 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,415 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.gitrequests updates:[com.mongodb.bulk.UpdateRequest@3ba348ca]
+2018-07-03 11:40:53,416 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,417 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.gitrequests updates:[com.mongodb.bulk.UpdateRequest@56e9a474]
+2018-07-03 11:40:53,427 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,428 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.gitrequests updates:[com.mongodb.bulk.UpdateRequest@45b15381]
+2018-07-03 11:40:53,431 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,432 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.gitrequests updates:[com.mongodb.bulk.UpdateRequest@2dbfcf7]
+2018-07-03 11:40:53,433 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,434 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.gitrequests updates:[com.mongodb.bulk.UpdateRequest@239f017e]
+2018-07-03 11:40:53,435 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,436 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.gitrequests updates:[com.mongodb.bulk.UpdateRequest@38cedb7d]
+2018-07-03 11:40:53,437 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,438 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.gitrequests updates:[com.mongodb.bulk.UpdateRequest@772caabe]
+2018-07-03 11:40:53,439 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,439 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.gitrequests updates:[com.mongodb.bulk.UpdateRequest@2acdcce8]
+2018-07-03 11:40:53,441 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,441 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.gitrequests updates:[com.mongodb.bulk.UpdateRequest@7102ac3e]
+2018-07-03 11:40:53,442 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,443 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.gitrequests updates:[com.mongodb.bulk.UpdateRequest@3f598450]
+2018-07-03 11:40:53,444 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,461 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.library_policy updates:[com.mongodb.bulk.UpdateRequest@42383cb0]
+2018-07-03 11:40:53,466 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,841 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.dashboards updates:[com.mongodb.bulk.UpdateRequest@5eb5da12]
+2018-07-03 11:40:53,843 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,846 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.components updates:[com.mongodb.bulk.UpdateRequest@4a50d04a]
+2018-07-03 11:40:53,849 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,853 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@5099c59b]
+2018-07-03 11:40:53,854 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,854 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@73c31181]
+2018-07-03 11:40:53,855 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,856 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@3d620a1]
+2018-07-03 11:40:53,857 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,857 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@4f486211]
+2018-07-03 11:40:53,858 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,858 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@51e3d37e]
+2018-07-03 11:40:53,859 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,860 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@3a479fda]
+2018-07-03 11:40:53,860 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,861 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@8a6631b]
+2018-07-03 11:40:53,862 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,863 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@472d0f4]
+2018-07-03 11:40:53,863 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,864 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@4bc59b27]
+2018-07-03 11:40:53,865 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,865 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@4d7a64ca]
+2018-07-03 11:40:53,866 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,866 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@76ff68c5]
+2018-07-03 11:40:53,867 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,868 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@6418e39e]
+2018-07-03 11:40:53,869 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,869 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@3635099]
+2018-07-03 11:40:53,870 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,870 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@1da1380b]
+2018-07-03 11:40:53,871 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,871 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@1095d23a]
+2018-07-03 11:40:53,872 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,872 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@3332c7a5]
+2018-07-03 11:40:53,873 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,873 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@2accaec2]
+2018-07-03 11:40:53,874 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,875 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@3e39baf0]
+2018-07-03 11:40:53,875 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,876 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@83bb0f]
+2018-07-03 11:40:53,877 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,883 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@25a94b55]
+2018-07-03 11:40:53,884 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,885 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@6adc5b9c]
+2018-07-03 11:40:53,885 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,886 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@19c1820d]
+2018-07-03 11:40:53,888 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,888 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@40709f9]
+2018-07-03 11:40:53,889 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,889 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@6b1b19cf]
+2018-07-03 11:40:53,890 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,891 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@6393bf8b]
+2018-07-03 11:40:53,891 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,892 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@76d7881e]
+2018-07-03 11:40:53,892 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,893 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@4aa31ffc]
+2018-07-03 11:40:53,894 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,894 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@7945b206]
+2018-07-03 11:40:53,895 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,896 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@7d42542]
+2018-07-03 11:40:53,898 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,899 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@4d09cade]
+2018-07-03 11:40:53,900 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,900 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@1f87607c]
+2018-07-03 11:40:53,901 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,901 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@4b862408]
+2018-07-03 11:40:53,902 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,902 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@6ddee60f]
+2018-07-03 11:40:53,903 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,904 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@6e829e50]
+2018-07-03 11:40:53,905 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,906 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@4aa2877c]
+2018-07-03 11:40:53,907 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,907 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@307e4c44]
+2018-07-03 11:40:53,908 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,909 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@2a8a3ada]
+2018-07-03 11:40:53,909 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,910 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@500051c5]
+2018-07-03 11:40:53,911 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,911 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@ec7b5de]
+2018-07-03 11:40:53,912 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,912 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@4c19d42e]
+2018-07-03 11:40:53,913 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,913 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@373e6b9d]
+2018-07-03 11:40:53,914 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,914 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@65629ac6]
+2018-07-03 11:40:53,915 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,915 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@56b8aaf1]
+2018-07-03 11:40:53,916 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,917 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@5482bcac]
+2018-07-03 11:40:53,917 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,918 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@10244722]
+2018-07-03 11:40:53,919 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,919 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@61615b4a]
+2018-07-03 11:40:53,920 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,920 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@721d8ab5]
+2018-07-03 11:40:53,921 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,921 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@33bb3f86]
+2018-07-03 11:40:53,922 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,922 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@1946384]
+2018-07-03 11:40:53,923 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,924 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@6ac4c3f7]
+2018-07-03 11:40:53,925 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,926 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@7412a438]
+2018-07-03 11:40:53,927 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,928 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@1e3ff233]
+2018-07-03 11:40:53,929 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,929 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@3c952a33]
+2018-07-03 11:40:53,930 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,930 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@70029d2d]
+2018-07-03 11:40:53,930 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,931 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@1150d471]
+2018-07-03 11:40:53,931 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,932 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@709f0202]
+2018-07-03 11:40:53,932 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,933 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@654e6a90]
+2018-07-03 11:40:53,933 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,934 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@14168e1]
+2018-07-03 11:40:53,934 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,935 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@16a5c7e4]
+2018-07-03 11:40:53,936 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,936 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@1e225820]
+2018-07-03 11:40:53,937 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,938 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@8aeab9e]
+2018-07-03 11:40:53,940 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,941 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@2a2dc0a]
+2018-07-03 11:40:53,943 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,943 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@3a00b15d]
+2018-07-03 11:40:53,944 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,944 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@36ef1d65]
+2018-07-03 11:40:53,945 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,945 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@4be0a27d]
+2018-07-03 11:40:53,946 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,947 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@5f366587]
+2018-07-03 11:40:53,948 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,948 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@6003ad65]
+2018-07-03 11:40:53,949 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,950 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@2ec99035]
+2018-07-03 11:40:53,950 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,951 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@60743cdb]
+2018-07-03 11:40:53,951 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,952 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@c02670f]
+2018-07-03 11:40:53,953 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,953 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@71179b6f]
+2018-07-03 11:40:53,954 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,954 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@13bdf540]
+2018-07-03 11:40:53,955 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,955 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@526e8108]
+2018-07-03 11:40:53,955 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,957 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@4dcbae55]
+2018-07-03 11:40:53,958 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,959 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@4a9860]
+2018-07-03 11:40:53,959 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,960 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@7ca16adc]
+2018-07-03 11:40:53,960 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,961 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@5ae1c281]
+2018-07-03 11:40:53,961 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,962 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@4ac8768e]
+2018-07-03 11:40:53,963 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,964 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@1e957e2f]
+2018-07-03 11:40:53,964 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,965 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@691500ab]
+2018-07-03 11:40:53,966 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,967 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@3db432c2]
+2018-07-03 11:40:53,968 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,968 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@34414ffc]
+2018-07-03 11:40:53,969 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,969 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@1903b5d]
+2018-07-03 11:40:53,970 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,973 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collectors updates:[com.mongodb.bulk.UpdateRequest@4041739c]
+2018-07-03 11:40:53,974 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,975 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collectors updates:[com.mongodb.bulk.UpdateRequest@5cff6b74]
+2018-07-03 11:40:53,976 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,978 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collectors updates:[com.mongodb.bulk.UpdateRequest@627ff1b8]
+2018-07-03 11:40:53,979 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,987 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.gitrequests updates:[com.mongodb.bulk.UpdateRequest@29a33620]
+2018-07-03 11:40:53,989 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,989 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.gitrequests updates:[com.mongodb.bulk.UpdateRequest@ea04cab]
+2018-07-03 11:40:53,990 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,991 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.gitrequests updates:[com.mongodb.bulk.UpdateRequest@134f8ef6]
+2018-07-03 11:40:53,992 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,992 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.gitrequests updates:[com.mongodb.bulk.UpdateRequest@5a90265a]
+2018-07-03 11:40:53,993 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,994 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.gitrequests updates:[com.mongodb.bulk.UpdateRequest@6a32191e]
+2018-07-03 11:40:53,995 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,996 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.gitrequests updates:[com.mongodb.bulk.UpdateRequest@66fbc5e7]
+2018-07-03 11:40:53,997 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,998 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.gitrequests updates:[com.mongodb.bulk.UpdateRequest@9accff0]
+2018-07-03 11:40:53,999 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:53,999 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.gitrequests updates:[com.mongodb.bulk.UpdateRequest@52559a69]
+2018-07-03 11:40:54,000 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,000 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.gitrequests updates:[com.mongodb.bulk.UpdateRequest@285583d4]
+2018-07-03 11:40:54,001 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,002 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.gitrequests updates:[com.mongodb.bulk.UpdateRequest@1039bfc4]
+2018-07-03 11:40:54,003 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,004 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.gitrequests updates:[com.mongodb.bulk.UpdateRequest@7f85217c]
+2018-07-03 11:40:54,005 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,006 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.gitrequests updates:[com.mongodb.bulk.UpdateRequest@1fd7a37]
+2018-07-03 11:40:54,007 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,008 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.gitrequests updates:[com.mongodb.bulk.UpdateRequest@5b202ff]
+2018-07-03 11:40:54,009 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,009 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.gitrequests updates:[com.mongodb.bulk.UpdateRequest@58a84a12]
+2018-07-03 11:40:54,010 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,011 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.gitrequests updates:[com.mongodb.bulk.UpdateRequest@e700eba]
+2018-07-03 11:40:54,012 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,016 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.library_policy updates:[com.mongodb.bulk.UpdateRequest@22bf9122]
+2018-07-03 11:40:54,020 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,065 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.dashboards updates:[com.mongodb.bulk.UpdateRequest@c1050f2]
+2018-07-03 11:40:54,068 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,071 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.components updates:[com.mongodb.bulk.UpdateRequest@67bb4dcd]
+2018-07-03 11:40:54,072 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,076 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@738d37fc]
+2018-07-03 11:40:54,076 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,077 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@6fa2448b]
+2018-07-03 11:40:54,078 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,079 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@61bb1e4d]
+2018-07-03 11:40:54,079 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,080 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@5c53f292]
+2018-07-03 11:40:54,080 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,081 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@46fb0c33]
+2018-07-03 11:40:54,081 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,081 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@3b009e7b]
+2018-07-03 11:40:54,082 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,082 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@270a620]
+2018-07-03 11:40:54,083 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,083 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@41f4039e]
+2018-07-03 11:40:54,084 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,084 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@5ff00507]
+2018-07-03 11:40:54,085 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,085 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@603cabc4]
+2018-07-03 11:40:54,085 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,086 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@67fa5045]
+2018-07-03 11:40:54,087 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,087 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@6f347d7]
+2018-07-03 11:40:54,088 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,088 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@5974b233]
+2018-07-03 11:40:54,089 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,089 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@5c134052]
+2018-07-03 11:40:54,090 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,090 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@69de5bed]
+2018-07-03 11:40:54,091 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,091 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@750f64fe]
+2018-07-03 11:40:54,092 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,092 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@996a546]
+2018-07-03 11:40:54,092 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,093 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@4fc165f6]
+2018-07-03 11:40:54,093 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,093 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collector_items updates:[com.mongodb.bulk.UpdateRequest@545b5ed0]
+2018-07-03 11:40:54,094 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,099 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@5a7df831]
+2018-07-03 11:40:54,100 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,100 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@667dcaad]
+2018-07-03 11:40:54,101 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,102 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@22d7fd41]
+2018-07-03 11:40:54,102 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,103 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@2c748a15]
+2018-07-03 11:40:54,103 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,103 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@19fd43da]
+2018-07-03 11:40:54,104 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,106 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@115dcaea]
+2018-07-03 11:40:54,106 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,109 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@cfd1075]
+2018-07-03 11:40:54,110 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,111 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@45117dd]
+2018-07-03 11:40:54,113 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,114 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@7741771e]
+2018-07-03 11:40:54,115 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,116 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@834e986]
+2018-07-03 11:40:54,117 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,117 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@6cae2e4d]
+2018-07-03 11:40:54,118 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,118 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@604d23fa]
+2018-07-03 11:40:54,119 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,119 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@1cc8416a]
+2018-07-03 11:40:54,120 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,120 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@331ff3ac]
+2018-07-03 11:40:54,120 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,121 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@2e5e6fc4]
+2018-07-03 11:40:54,121 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,122 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@2785db06]
+2018-07-03 11:40:54,122 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,123 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@79980d8d]
+2018-07-03 11:40:54,123 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,124 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@35d60381]
+2018-07-03 11:40:54,124 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,124 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@68ab6ab0]
+2018-07-03 11:40:54,125 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,125 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@61ffd148]
+2018-07-03 11:40:54,126 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,127 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@58324c9f]
+2018-07-03 11:40:54,128 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,128 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@5d7d8613]
+2018-07-03 11:40:54,129 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,129 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@6eb089e6]
+2018-07-03 11:40:54,130 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,130 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@715a70e9]
+2018-07-03 11:40:54,131 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,131 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@3bc69ce9]
+2018-07-03 11:40:54,132 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,132 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@abad89c]
+2018-07-03 11:40:54,133 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,133 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@602f8f94]
+2018-07-03 11:40:54,134 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,135 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@42507640]
+2018-07-03 11:40:54,135 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,136 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@4dfe8b37]
+2018-07-03 11:40:54,136 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,137 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@11dcd42c]
+2018-07-03 11:40:54,137 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,137 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@d13baac]
+2018-07-03 11:40:54,138 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,138 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@4c302f38]
+2018-07-03 11:40:54,139 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,139 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@75aea2ba]
+2018-07-03 11:40:54,140 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,140 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@2a47597]
+2018-07-03 11:40:54,141 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,141 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@12f279b5]
+2018-07-03 11:40:54,142 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,142 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@5ff6dd3c]
+2018-07-03 11:40:54,143 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,143 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@5fcd1f0a]
+2018-07-03 11:40:54,144 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,144 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@7e64c1a9]
+2018-07-03 11:40:54,145 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,145 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@7fda2001]
+2018-07-03 11:40:54,147 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,148 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@162c1dfb]
+2018-07-03 11:40:54,149 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,150 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@21ae657b]
+2018-07-03 11:40:54,150 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,150 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@799f916e]
+2018-07-03 11:40:54,151 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,151 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@576b7c74]
+2018-07-03 11:40:54,152 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,152 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@21de60a7]
+2018-07-03 11:40:54,152 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,153 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@73894c5a]
+2018-07-03 11:40:54,153 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,154 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@7698b7a4]
+2018-07-03 11:40:54,154 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,155 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@7a9ceddf]
+2018-07-03 11:40:54,155 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,155 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@28157173]
+2018-07-03 11:40:54,156 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,156 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@11c713b7]
+2018-07-03 11:40:54,157 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,158 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@2251b3bc]
+2018-07-03 11:40:54,158 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,158 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@3fbe503c]
+2018-07-03 11:40:54,159 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,159 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@3c232051]
+2018-07-03 11:40:54,160 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,160 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@15d0d6c9]
+2018-07-03 11:40:54,160 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,161 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@3ab35b9c]
+2018-07-03 11:40:54,161 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,161 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@7741d346]
+2018-07-03 11:40:54,162 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,162 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@52454457]
+2018-07-03 11:40:54,163 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,163 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@4130a648]
+2018-07-03 11:40:54,164 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,164 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@61ff6a49]
+2018-07-03 11:40:54,164 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,165 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@18dd5ed3]
+2018-07-03 11:40:54,165 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,165 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@6042d663]
+2018-07-03 11:40:54,166 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,166 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@24043ec5]
+2018-07-03 11:40:54,167 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,168 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@3e33b52e]
+2018-07-03 11:40:54,168 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,169 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@4c6a4ffd]
+2018-07-03 11:40:54,169 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,170 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.commits updates:[com.mongodb.bulk.UpdateRequest@3aed69dd]
+2018-07-03 11:40:54,170 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,172 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collectors updates:[com.mongodb.bulk.UpdateRequest@3f1a9a53]
+2018-07-03 11:40:54,172 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,173 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collectors updates:[com.mongodb.bulk.UpdateRequest@1ca3d25b]
+2018-07-03 11:40:54,173 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,174 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.collectors updates:[com.mongodb.bulk.UpdateRequest@2287395]
+2018-07-03 11:40:54,175 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,183 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.gitrequests updates:[com.mongodb.bulk.UpdateRequest@3a4aadf8]
+2018-07-03 11:40:54,184 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,184 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.gitrequests updates:[com.mongodb.bulk.UpdateRequest@7bbfc5ff]
+2018-07-03 11:40:54,185 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,186 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.gitrequests updates:[com.mongodb.bulk.UpdateRequest@7a682d35]
+2018-07-03 11:40:54,187 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,188 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.gitrequests updates:[com.mongodb.bulk.UpdateRequest@ee8e7ff]
+2018-07-03 11:40:54,189 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,189 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.gitrequests updates:[com.mongodb.bulk.UpdateRequest@61a2aeb7]
+2018-07-03 11:40:54,190 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,191 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.gitrequests updates:[com.mongodb.bulk.UpdateRequest@64b70f41]
+2018-07-03 11:40:54,192 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,192 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.gitrequests updates:[com.mongodb.bulk.UpdateRequest@5f8d9767]
+2018-07-03 11:40:54,193 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,194 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.gitrequests updates:[com.mongodb.bulk.UpdateRequest@16134476]
+2018-07-03 11:40:54,194 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,195 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.gitrequests updates:[com.mongodb.bulk.UpdateRequest@62b09715]
+2018-07-03 11:40:54,196 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,196 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.gitrequests updates:[com.mongodb.bulk.UpdateRequest@3e214105]
+2018-07-03 11:40:54,197 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,198 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.gitrequests updates:[com.mongodb.bulk.UpdateRequest@da4cf09]
+2018-07-03 11:40:54,199 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,199 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.gitrequests updates:[com.mongodb.bulk.UpdateRequest@1980a3f]
+2018-07-03 11:40:54,200 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,201 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.gitrequests updates:[com.mongodb.bulk.UpdateRequest@67f63d26]
+2018-07-03 11:40:54,202 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,202 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.gitrequests updates:[com.mongodb.bulk.UpdateRequest@536b71b4]
+2018-07-03 11:40:54,203 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,204 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.gitrequests updates:[com.mongodb.bulk.UpdateRequest@789c3057]
+2018-07-03 11:40:54,205 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,211 INFO  com.github.fakemongo.FongoConnection - updateCommand() namespace:test-db.library_policy updates:[com.mongodb.bulk.UpdateRequest@4538856f]
+2018-07-03 11:40:54,216 INFO  com.github.fakemongo.FongoConnection - release()
+2018-07-03 11:40:54,641 INFO  o.s.c.s.GenericApplicationContext - Closing org.springframework.context.support.GenericApplicationContext@21d03963: startup date [Tue Jul 03 11:40:49 EDT 2018]; root of context hierarchy

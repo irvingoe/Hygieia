@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>HpsmSettings.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">com.capitalone.dashboard:hpsm-cmdb-collector</a> &gt; <a href="index.source.html" class="el_package">com.capitalone.dashboard.collector</a> &gt; <span class="el_source">HpsmSettings.java</span></div><h1>HpsmSettings.java</h1><pre class="source lang-java linenums">package com.capitalone.dashboard.collector;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.stereotype.Component;
+
+/**
+ * Bean to hold settings specific to the HPSM collector.
+ */
+@Component
+@ConfigurationProperties(prefix = &quot;hpsm&quot;)
+<span class="nc" id="L12">public class HpsmSettings {</span>
+    private String cron;
+    private String changeOrderCron;
+    private String incidentCron;
+    private String server;
+	private String protocol;
+	private String resource;
+	private String contentType;
+	private String charset;
+	private String user;
+	private String pass;
+    private String key;
+    private String appSubType;
+    private String appType;
+    private String appStatus;
+	private String compSubType;
+	private String compType;
+
+	private String envSubType;
+	private String envType;
+
+	private String detailsRequestType;
+	private String detailsSoapAction;
+
+	private String changeOrderRequestType;
+	private String changeOrderSoapAction;
+
+	private String incidentRequestType;
+	private String incidentSoapAction;
+
+	private int port;
+    private int firstRunHistoryDays;
+    private int changeOrderDays;
+	private int incidentDays;
+
+	private String changeOrderQuery;
+	private String incidentQuery;
+	@Value(&quot;${cmdbBatchLimit:500}&quot;)
+	private String cmdbBatchLimit;
+	private String incidentReturnLimit;
+	private String changeOrderReturnLimit;
+
+	public String getServer() {
+<span class="nc" id="L55">		return server;</span>
+	}
+
+	public void setServer(String server) {
+<span class="nc" id="L59">		this.server = server;</span>
+<span class="nc" id="L60">	}</span>
+
+	public String getProtocol() {
+<span class="nc" id="L63">		return protocol;</span>
+	}
+
+	public void setProtocol(String protocol) {
+<span class="nc" id="L67">		this.protocol = protocol;</span>
+<span class="nc" id="L68">	}</span>
+
+	public String getResource() {
+<span class="nc" id="L71">		return resource;</span>
+	}
+
+	public void setResource(String resource) {
+<span class="nc" id="L75">		this.resource = resource;</span>
+<span class="nc" id="L76">	}</span>
+
+	public String getContentType() {
+<span class="nc" id="L79">		return contentType;</span>
+	}
+
+	public void setContentType(String contentType) {
+<span class="nc" id="L83">		this.contentType = contentType;</span>
+<span class="nc" id="L84">	}</span>
+
+	public String getCharset() {
+<span class="nc" id="L87">		return charset;</span>
+	}
+
+	public void setCharset(String charset) {
+<span class="nc" id="L91">		this.charset = charset;</span>
+<span class="nc" id="L92">	}</span>
+
+	public String getUser() {
+<span class="nc" id="L95">		return user;</span>
+	}
+
+	public void setUser(String user) {
+<span class="nc" id="L99">		this.user = user;</span>
+<span class="nc" id="L100">	}</span>
+
+	public String getPass() {
+<span class="nc" id="L103">		return pass;</span>
+	}
+
+	public void setPass(String pass) {
+<span class="nc" id="L107">		this.pass = pass;</span>
+<span class="nc" id="L108">	}</span>
+
+	public int getPort() {
+<span class="nc" id="L111">		return port;</span>
+	}
+
+	public void setPort(int port) {
+<span class="nc" id="L115">		this.port = port;</span>
+<span class="nc" id="L116">	}</span>
+
+	public String getAppSubType() {
+<span class="nc" id="L119">		return appSubType;</span>
+	}
+
+	public void setAppSubType(String appSubType) {
+<span class="nc" id="L123">		this.appSubType = appSubType;</span>
+<span class="nc" id="L124">	}</span>
+
+	public String getAppType() {
+<span class="nc" id="L127">		return appType;</span>
+	}
+
+	public void setAppType(String appType) {
+<span class="nc" id="L131">		this.appType = appType;</span>
+<span class="nc" id="L132">	}</span>
+
+	public String getAppStatus() {
+<span class="nc" id="L135">		return appStatus;</span>
+	}
+
+	public void setAppStatus(String appStatus) {
+<span class="nc" id="L139">		this.appStatus = appStatus;</span>
+<span class="nc" id="L140">	}</span>
+
+	public String getCompSubType() {
+<span class="nc" id="L143">		return compSubType;</span>
+	}
+
+	public void setCompSubType(String compSubType) {
+<span class="nc" id="L147">		this.compSubType = compSubType;</span>
+<span class="nc" id="L148">	}</span>
+
+	public String getCompType() {
+<span class="nc" id="L151">		return compType;</span>
+	}
+
+	public void setCompType(String compType) {
+<span class="nc" id="L155">		this.compType = compType;</span>
+<span class="nc" id="L156">	}</span>
+
+	public String getDetailsRequestType() {
+<span class="nc" id="L159">		return detailsRequestType;</span>
+	}
+
+	public void setDetailsRequestType(String detailsRequestType) {
+<span class="nc" id="L163">		this.detailsRequestType = detailsRequestType;</span>
+<span class="nc" id="L164">	}</span>
+
+	public String getDetailsSoapAction() {
+<span class="nc" id="L167">		return detailsSoapAction;</span>
+	}
+
+	public void setDetailsSoapAction(String detailsSoapAction) {
+<span class="nc" id="L171">		this.detailsSoapAction = detailsSoapAction;</span>
+<span class="nc" id="L172">	}</span>
+
+	public String getCron() {
+<span class="nc" id="L175">        return cron;</span>
+    }
+
+    public void setCron(String cron) {
+<span class="nc" id="L179">        this.cron = cron;</span>
+<span class="nc" id="L180">    }</span>
+
+<span class="nc" id="L182">	public String getChangeOrderCron() { return changeOrderCron; }</span>
+
+<span class="nc" id="L184">	public void setChangeOrderCron(String changeOrderCron) { this.changeOrderCron = changeOrderCron; }</span>
+
+<span class="nc" id="L186">	public String getIncidentCron() { return incidentCron; }</span>
+
+<span class="nc" id="L188">	public void setIncidentCron(String incidentCron) { this.incidentCron = incidentCron; }</span>
+
+	public String getKey() {
+<span class="nc" id="L191">		return key;</span>
+	}
+
+	public void setKey(String key) {
+<span class="nc" id="L195">		this.key = key;</span>
+<span class="nc" id="L196">	}</span>
+
+    public int getFirstRunHistoryDays() {
+<span class="nc" id="L199">		return firstRunHistoryDays;</span>
+	}
+
+	public void setFirstRunHistoryDays(int firstRunHistoryDays) {
+<span class="nc" id="L203">		this.firstRunHistoryDays = firstRunHistoryDays;</span>
+<span class="nc" id="L204">	}</span>
+
+<span class="nc" id="L206">	public String getEnvSubType() { return envSubType; }</span>
+
+<span class="nc" id="L208">	public void setEnvSubType(String envSubType) { this.envSubType = envSubType; }</span>
+
+<span class="nc" id="L210">	public String getEnvType() { return envType; }</span>
+
+<span class="nc" id="L212">	public void setEnvType(String envType) { this.envType = envType; }</span>
+
+<span class="nc" id="L214">	public String getChangeOrderRequestType() {	return changeOrderRequestType; 	}</span>
+
+<span class="nc" id="L216">	public void setChangeOrderRequestType(String changeOrderRequestType) { this.changeOrderRequestType = changeOrderRequestType; }</span>
+
+<span class="nc" id="L218">	public String getChangeOrderSoapAction() { return changeOrderSoapAction; }</span>
+
+<span class="nc" id="L220">	public void setChangeOrderSoapAction(String changeOrderSoapAction) { this.changeOrderSoapAction = changeOrderSoapAction; }</span>
+
+<span class="nc" id="L222">	public String getIncidentRequestType() { return incidentRequestType; }</span>
+
+<span class="nc" id="L224">	public void setIncidentRequestType(String incidentRequestType) { this.incidentRequestType = incidentRequestType; }</span>
+
+<span class="nc" id="L226">	public String getIncidentSoapAction() { return incidentSoapAction; }</span>
+
+<span class="nc" id="L228">	public void setIncidentSoapAction(String incidentSoapAction) { this.incidentSoapAction = incidentSoapAction; }</span>
+
+<span class="nc" id="L230">	public int getChangeOrderDays() { return changeOrderDays; }</span>
+
+<span class="nc" id="L232">	public void setChangeOrderDays(int changeOrderDays) { this.changeOrderDays = changeOrderDays; }</span>
+
+<span class="nc" id="L234">	public int getIncidentDays() { return incidentDays; }</span>
+
+<span class="nc" id="L236">	public void setIncidentDays(int incidentDays) { this.incidentDays = incidentDays; }</span>
+
+<span class="nc" id="L238">	public String getChangeOrderQuery() { return changeOrderQuery; }</span>
+
+<span class="nc" id="L240">	public void setChangeOrderQuery(String changeOrderQuery) { this.changeOrderQuery = changeOrderQuery; }</span>
+
+<span class="nc" id="L242">	public String getIncidentQuery() { return incidentQuery; }</span>
+
+<span class="nc" id="L244">	public void setIncidentQuery(String incidentQuery) { this.incidentQuery = incidentQuery; }</span>
+
+<span class="nc" id="L246">	public String getCmdbBatchLimit() {return cmdbBatchLimit;}</span>
+
+<span class="nc" id="L248">	public void setCmdbBatchLimit(String cmdbBatchLimit) {this.cmdbBatchLimit = cmdbBatchLimit;}</span>
+
+<span class="nc" id="L250">	public String getIncidentReturnLimit() { return incidentReturnLimit; }</span>
+
+<span class="nc" id="L252">	public void setIncidentReturnLimit(String incidentReturnLimit) { this.incidentReturnLimit = incidentReturnLimit; }</span>
+
+<span class="nc" id="L254">	public String getChangeOrderReturnLimit() { return changeOrderReturnLimit; }</span>
+
+<span class="nc" id="L256">	public void setChangeOrderReturnLimit(String changeOrderReturnLimit) { this.changeOrderReturnLimit = changeOrderReturnLimit; }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>HudsonJobConfig.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">com.capitalone.dashboard:jenkins-build-collector</a> &gt; <a href="index.source.html" class="el_package">com.capitalone.dashboard.model</a> &gt; <span class="el_source">HudsonJobConfig.java</span></div><h1>HudsonJobConfig.java</h1><pre class="source lang-java linenums">package com.capitalone.dashboard.model;
+
+/**
+ * CollectorItem extension to store the instance, build job and build url.
+ */
+<span class="nc" id="L6">public class HudsonJobConfig extends CollectorItemConfigHistory {</span>
+
+    protected static final String CURRENT_JOB_NAME = &quot;currentName&quot;;
+    protected static final String OLD_JOB_NAME = &quot;oldName&quot;;
+    protected static final String JOB_URL = &quot;jobUrl&quot;;
+    protected static final String HAS_CONFIG = &quot;hasConfig&quot;;
+
+
+    public String getCurrentJobName() {
+<span class="nc" id="L15">        return (String) getChangeMap().get(CURRENT_JOB_NAME);</span>
+    }
+
+    public String getOldJobName() {
+<span class="nc" id="L19">        return (String) getChangeMap().get(OLD_JOB_NAME);</span>
+    }
+
+    public String getJobUrl() {
+<span class="nc" id="L23">        return (String) getChangeMap().get(JOB_URL);</span>
+    }
+
+    public boolean isHasConfig() {
+<span class="nc" id="L27">        return (Boolean) getChangeMap().get(HAS_CONFIG);</span>
+    }
+
+    public void setCurrentJobName (String currentJobName) {
+<span class="nc" id="L31">        getChangeMap().put(CURRENT_JOB_NAME, currentJobName);</span>
+<span class="nc" id="L32">    }</span>
+
+    public void setOldJobName (String oldJobName) {
+<span class="nc" id="L35">        getChangeMap().put(OLD_JOB_NAME, oldJobName);</span>
+<span class="nc" id="L36">    }</span>
+    public void setJobUrl (String jobUrl) {
+<span class="nc" id="L38">        getChangeMap().put(JOB_URL, jobUrl);</span>
+<span class="nc" id="L39">    }</span>
+    public void setHasConfig (boolean value) {
+<span class="nc" id="L41">        getChangeMap().put(HAS_CONFIG, value);</span>
+<span class="nc" id="L42">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

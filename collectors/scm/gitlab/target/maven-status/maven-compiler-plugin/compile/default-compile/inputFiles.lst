@@ -1,0 +1,11 @@
+E:\Repositories\update\Hygieia\collectors\scm\gitlab\src\main\java\com\capitalone\dashboard\gitlab\DefaultGitlabGitClient.java
+E:\Repositories\update\Hygieia\collectors\scm\gitlab\src\main\java\com\capitalone\dashboard\collector\GitlabSettings.java
+E:\Repositories\update\Hygieia\collectors\scm\gitlab\src\main\java\com\capitalone\dashboard\gitlab\GitlabUrlUtility.java
+E:\Repositories\update\Hygieia\collectors\scm\gitlab\src\main\java\com\capitalone\dashboard\collector\RestOperationsSupplier.java
+E:\Repositories\update\Hygieia\collectors\scm\gitlab\src\main\java\com\capitalone\dashboard\model\GitlabGitRepo.java
+E:\Repositories\update\Hygieia\collectors\scm\gitlab\src\main\java\com\capitalone\dashboard\gitlab\GitlabCommitsResponseMapper.java
+E:\Repositories\update\Hygieia\collectors\scm\gitlab\src\main\java\com\capitalone\dashboard\collector\GitlabGitCollectorTask.java
+E:\Repositories\update\Hygieia\collectors\scm\gitlab\src\main\java\com\capitalone\dashboard\gitlab\GitlabGitClient.java
+E:\Repositories\update\Hygieia\collectors\scm\gitlab\src\main\java\com\capitalone\dashboard\gitlab\model\GitlabCommit.java
+E:\Repositories\update\Hygieia\collectors\scm\gitlab\src\main\java\com\capitalone\dashboard\repository\GitlabGitCollectorRepository.java
+E:\Repositories\update\Hygieia\collectors\scm\gitlab\src\main\java\com\capitalone\dashboard\Application.java
